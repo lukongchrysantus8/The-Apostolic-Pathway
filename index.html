@@ -1,0 +1,1853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Apostolic Pathway | Restoring the Church to Truth, Power and True Discipleship</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --deep: #111111;
+    --card: #161616;
+    --gold: #c9a84c;
+    --gold-light: #e8c96a;
+    --gold-dark: #9a7a2e;
+    --white: #f5f0e8;
+    --white-pure: #ffffff;
+    --grey: #888;
+    --border: rgba(201,168,76,0.25);
+    --glow: rgba(201,168,76,0.15);
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width:6px; }
+  ::-webkit-scrollbar-track { background: var(--black); }
+  ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius:3px; }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed; top:0; left:0; right:0; z-index:1000;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 5%;
+    display: flex; align-items:center; justify-content:space-between;
+    height: 70px;
+  }
+
+  .logo {
+    display:flex; align-items:center; gap:12px; text-decoration:none;
+  }
+  .logo-mark {
+    width:44px; height:44px;
+    border:2px solid var(--gold);
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+    transform: rotate(0deg);
+  }
+  .logo-mark::before {
+    content:'';
+    position:absolute;
+    width:2px; height:28px;
+    background:var(--white-pure);
+    top:50%; left:50%;
+    transform:translate(-50%,-50%);
+  }
+  .logo-mark::after {
+    content:'';
+    position:absolute;
+    width:16px; height:2px;
+    background:var(--white-pure);
+    top:35%; left:50%;
+    transform:translate(-50%,-50%);
+  }
+  .logo-text-wrap { display:flex; flex-direction:column; }
+  .logo-main {
+    font-family:'Cinzel',serif;
+    font-size:1.3rem; font-weight:700;
+    color:var(--gold);
+    letter-spacing:0.15em;
+    line-height:1;
+  }
+  .logo-sub {
+    font-size:0.5rem; color:var(--white); letter-spacing:0.25em;
+    text-transform:uppercase; margin-top:2px;
+  }
+
+  .nav-links { display:flex; gap:2rem; align-items:center; }
+  .nav-links a {
+    color:var(--white); text-decoration:none;
+    font-size:0.75rem; letter-spacing:0.15em; text-transform:uppercase;
+    transition:color 0.3s;
+    font-weight:500;
+  }
+  .nav-links a:hover { color:var(--gold); }
+
+  .nav-right { display:flex; align-items:center; gap:1rem; }
+
+  .lang-toggle {
+    background:none; border:1px solid var(--border);
+    color:var(--white); cursor:pointer;
+    padding:6px 14px; font-size:0.7rem; letter-spacing:0.1em;
+    font-family:'Montserrat',sans-serif;
+    transition:all 0.3s;
+  }
+  .lang-toggle:hover { border-color:var(--gold); color:var(--gold); }
+
+  .nav-cta {
+    background:var(--gold); color:var(--black);
+    border:none; padding:8px 20px;
+    font-size:0.7rem; font-weight:600; letter-spacing:0.15em;
+    text-transform:uppercase; cursor:pointer;
+    font-family:'Montserrat',sans-serif;
+    transition:all 0.3s;
+    text-decoration:none;
+    display:inline-block;
+  }
+  .nav-cta:hover { background:var(--gold-light); }
+
+  .hamburger {
+    display:none; flex-direction:column; gap:5px; cursor:pointer; padding:5px;
+  }
+  .hamburger span {
+    width:24px; height:2px; background:var(--white); transition:all 0.3s;
+    display:block;
+  }
+
+  /* ===== HERO ===== */
+  #home {
+    min-height: 100vh;
+    display:flex; align-items:center; justify-content:center;
+    position:relative; overflow:hidden;
+    padding: 70px 5% 0;
+  }
+
+  .hero-bg {
+    position:absolute; inset:0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 100%, rgba(201,168,76,0.06) 0%, transparent 50%);
+  }
+
+  .hero-lines {
+    position:absolute; inset:0; overflow:hidden; pointer-events:none;
+  }
+  .hero-lines::before {
+    content:'';
+    position:absolute;
+    top:10%; left:-10%;
+    width:120%; height:1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent);
+    transform: rotate(-15deg);
+  }
+  .hero-lines::after {
+    content:'';
+    position:absolute;
+    bottom:20%; right:-10%;
+    width:120%; height:1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.2), transparent);
+    transform: rotate(-15deg);
+  }
+
+  .cross-watermark {
+    position:absolute; right:8%; top:50%; transform:translateY(-50%);
+    opacity:0.04;
+    font-size:30vw; line-height:1;
+    color:var(--gold);
+    pointer-events:none;
+    font-family:'Cinzel',serif;
+    user-select:none;
+  }
+
+  .hero-content {
+    text-align:center; max-width:900px;
+    position:relative; z-index:2;
+    animation: fadeUp 1.2s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity:0; transform:translateY(40px); }
+    to   { opacity:1; transform:translateY(0); }
+  }
+
+  .hero-eyebrow {
+    display:inline-block;
+    font-size:0.65rem; letter-spacing:0.4em; text-transform:uppercase;
+    color:var(--gold); border:1px solid var(--border);
+    padding:6px 20px; margin-bottom:2.5rem;
+    animation: fadeUp 1s ease 0.2s both;
+  }
+
+  .hero-title {
+    font-family:'Cinzel Decorative', serif;
+    font-size:clamp(2rem, 6vw, 5.5rem);
+    font-weight:700; line-height:1.1;
+    color:var(--white-pure);
+    margin-bottom:1.5rem;
+    animation: fadeUp 1s ease 0.4s both;
+  }
+
+  .hero-title span { color:var(--gold); }
+
+  .hero-tagline {
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(1rem, 2.5vw, 1.6rem);
+    font-style:italic; color:rgba(245,240,232,0.7);
+    margin-bottom:3rem;
+    animation: fadeUp 1s ease 0.6s both;
+    letter-spacing:0.05em;
+  }
+
+  .hero-verse {
+    font-family:'Cormorant Garamond',serif;
+    font-size:0.95rem; font-style:italic;
+    color:rgba(201,168,76,0.8);
+    margin-bottom:3rem;
+    animation: fadeUp 1s ease 0.7s both;
+  }
+
+  .hero-btns {
+    display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;
+    animation: fadeUp 1s ease 0.8s both;
+  }
+
+  .btn-gold {
+    background:var(--gold); color:var(--black);
+    padding:14px 36px; font-size:0.75rem; font-weight:600;
+    letter-spacing:0.2em; text-transform:uppercase;
+    border:none; cursor:pointer; font-family:'Montserrat',sans-serif;
+    transition:all 0.3s; text-decoration:none; display:inline-block;
+  }
+  .btn-gold:hover { background:var(--gold-light); transform:translateY(-2px); box-shadow:0 8px 30px rgba(201,168,76,0.3); }
+
+  .btn-outline {
+    background:transparent; color:var(--white);
+    padding:14px 36px; font-size:0.75rem; font-weight:500;
+    letter-spacing:0.2em; text-transform:uppercase;
+    border:1px solid rgba(245,240,232,0.4); cursor:pointer;
+    font-family:'Montserrat',sans-serif;
+    transition:all 0.3s; text-decoration:none; display:inline-block;
+  }
+  .btn-outline:hover { border-color:var(--gold); color:var(--gold); }
+
+  /* ===== SECTIONS ===== */
+  section { padding:100px 5%; }
+
+  .section-label {
+    font-size:0.6rem; letter-spacing:0.4em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:1rem; display:block;
+  }
+
+  .section-title {
+    font-family:'Cinzel',serif;
+    font-size:clamp(1.5rem, 4vw, 3rem);
+    font-weight:600; color:var(--white-pure);
+    margin-bottom:1.5rem; line-height:1.2;
+  }
+
+  .section-title span { color:var(--gold); }
+
+  .section-desc {
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.15rem; color:rgba(245,240,232,0.65);
+    max-width:650px; line-height:1.8;
+    font-style:italic;
+  }
+
+  .divider {
+    width:60px; height:2px;
+    background:linear-gradient(90deg, var(--gold), transparent);
+    margin:1.5rem 0;
+  }
+
+  /* ===== MARQUEE ===== */
+  .marquee-wrap {
+    overflow:hidden; border-top:1px solid var(--border); border-bottom:1px solid var(--border);
+    padding:18px 0; background:rgba(201,168,76,0.03);
+  }
+  .marquee-track {
+    display:flex; gap:4rem; white-space:nowrap;
+    animation: marquee 30s linear infinite;
+  }
+  @keyframes marquee {
+    from { transform:translateX(0); }
+    to   { transform:translateX(-50%); }
+  }
+  .marquee-item {
+    font-family:'Cinzel',serif; font-size:0.7rem;
+    letter-spacing:0.3em; text-transform:uppercase;
+    color:var(--gold-dark);
+  }
+  .marquee-item span { color:var(--gold); margin:0 2rem; }
+
+  /* ===== ABOUT ===== */
+  #about { background:var(--deep); }
+
+  .about-grid {
+    display:grid; grid-template-columns:1fr 1fr; gap:80px;
+    align-items:center; max-width:1200px; margin:0 auto;
+  }
+
+  .about-visual {
+    position:relative; display:flex; align-items:center; justify-content:center;
+  }
+  .about-cross {
+    width:180px; height:300px;
+    position:relative;
+  }
+  .about-cross::before {
+    content:'';
+    position:absolute;
+    left:50%; top:0; transform:translateX(-50%);
+    width:8px; height:100%;
+    background:linear-gradient(180deg, var(--gold), var(--gold-dark));
+    border-radius:4px;
+  }
+  .about-cross::after {
+    content:'';
+    position:absolute;
+    left:10%; top:30%; transform:translateY(-50%);
+    width:80%; height:8px;
+    background:linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-dark));
+    border-radius:4px;
+  }
+  .cross-glow {
+    position:absolute;
+    width:280px; height:280px;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%);
+    animation: pulse 3s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%,100% { transform:scale(1); opacity:0.6; }
+    50% { transform:scale(1.1); opacity:1; }
+  }
+
+  .vision-cards { display:flex; flex-direction:column; gap:1.5rem; margin-top:2.5rem; }
+  .vision-card {
+    border-left:3px solid var(--gold);
+    padding:1.2rem 1.5rem;
+    background:rgba(201,168,76,0.04);
+  }
+  .vision-card h4 {
+    font-family:'Cinzel',serif; font-size:0.85rem;
+    letter-spacing:0.15em; color:var(--gold); margin-bottom:0.5rem;
+  }
+  .vision-card p {
+    font-size:0.85rem; color:rgba(245,240,232,0.65); line-height:1.7;
+  }
+
+  /* ===== AUDIENCE ===== */
+  #audience { background:var(--black); }
+
+  .audience-grid {
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1.5px;
+    max-width:1200px; margin:3rem auto 0;
+  }
+
+  .audience-card {
+    background:var(--card);
+    padding:2.5rem 2rem;
+    border:1px solid rgba(201,168,76,0.08);
+    transition:all 0.4s;
+    cursor:pointer;
+    position:relative; overflow:hidden;
+  }
+  .audience-card::before {
+    content:'';
+    position:absolute; bottom:0; left:0; right:0;
+    height:3px;
+    background:linear-gradient(90deg, var(--gold), var(--gold-light));
+    transform:scaleX(0); transform-origin:left;
+    transition:transform 0.4s;
+  }
+  .audience-card:hover::before { transform:scaleX(1); }
+  .audience-card:hover { background:rgba(22,22,22,0.95); border-color:var(--border); transform:translateY(-4px); }
+
+  .card-number {
+    font-family:'Cinzel Decorative',serif;
+    font-size:3rem; color:rgba(201,168,76,0.1);
+    line-height:1; margin-bottom:0.5rem;
+  }
+  .card-icon { font-size:1.8rem; margin-bottom:1rem; }
+  .card-title {
+    font-family:'Cinzel',serif; font-size:1rem;
+    letter-spacing:0.1em; color:var(--white-pure); margin-bottom:0.8rem;
+  }
+  .card-problem {
+    font-size:0.78rem; color:rgba(245,240,232,0.5);
+    line-height:1.7; margin-bottom:1rem;
+  }
+  .card-solution {
+    font-size:0.78rem; color:rgba(201,168,76,0.8);
+    line-height:1.7;
+  }
+  .card-btn {
+    display:inline-block; margin-top:1.5rem;
+    font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--gold); border-bottom:1px solid var(--gold);
+    padding-bottom:2px; cursor:pointer; transition:all 0.3s;
+    background:none; border-top:none; border-left:none; border-right:none;
+    font-family:'Montserrat',sans-serif;
+  }
+  .card-btn:hover { color:var(--gold-light); }
+
+  /* ===== ASSESSMENT HUB ===== */
+  #assessment { background:var(--deep); }
+
+  .assessment-center { max-width:900px; margin:0 auto; }
+
+  .category-tabs {
+    display:flex; flex-wrap:wrap; gap:0.5rem;
+    margin:2.5rem 0 2rem;
+  }
+  .cat-tab {
+    background:none; border:1px solid var(--border);
+    color:rgba(245,240,232,0.6);
+    padding:8px 20px; font-size:0.7rem; letter-spacing:0.15em;
+    text-transform:uppercase; cursor:pointer;
+    font-family:'Montserrat',sans-serif;
+    transition:all 0.3s;
+  }
+  .cat-tab:hover, .cat-tab.active {
+    background:var(--gold); color:var(--black); border-color:var(--gold);
+  }
+
+  /* Quiz Container */
+  .quiz-container {
+    background:var(--card); border:1px solid var(--border);
+    padding:3rem; position:relative;
+  }
+  .quiz-header { margin-bottom:2rem; }
+  .quiz-title {
+    font-family:'Cinzel',serif; font-size:1.3rem;
+    color:var(--gold); margin-bottom:0.5rem;
+  }
+  .quiz-subtitle {
+    font-size:0.8rem; color:rgba(245,240,232,0.5);
+    letter-spacing:0.05em;
+  }
+
+  .progress-bar {
+    width:100%; height:3px; background:rgba(255,255,255,0.1);
+    margin:1.5rem 0;
+  }
+  .progress-fill {
+    height:100%; background:linear-gradient(90deg,var(--gold-dark),var(--gold));
+    transition:width 0.4s ease;
+  }
+  .progress-text {
+    font-size:0.65rem; color:var(--grey); letter-spacing:0.15em;
+    text-align:right; margin-top:4px;
+  }
+
+  .question-block { display:none; }
+  .question-block.active { display:block; }
+
+  .q-text {
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.25rem; color:var(--white-pure);
+    margin-bottom:2rem; line-height:1.6;
+  }
+
+  .options { display:flex; flex-direction:column; gap:0.75rem; }
+  .option {
+    display:flex; align-items:flex-start; gap:1rem;
+    padding:1rem 1.25rem;
+    background:rgba(255,255,255,0.03);
+    border:1px solid rgba(255,255,255,0.08);
+    cursor:pointer; transition:all 0.2s;
+  }
+  .option:hover { border-color:var(--gold); background:rgba(201,168,76,0.06); }
+  .option.selected { border-color:var(--gold); background:rgba(201,168,76,0.1); }
+  .option input[type=radio] { display:none; }
+  .opt-indicator {
+    width:18px; height:18px; min-width:18px;
+    border:1px solid rgba(201,168,76,0.4);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    margin-top:1px;
+    transition:all 0.2s;
+  }
+  .option.selected .opt-indicator { background:var(--gold); border-color:var(--gold); }
+  .option.selected .opt-indicator::after {
+    content:''; width:6px; height:6px;
+    background:var(--black); border-radius:50%;
+  }
+  .opt-text { font-size:0.85rem; color:rgba(245,240,232,0.75); line-height:1.5; }
+
+  .quiz-nav {
+    display:flex; justify-content:space-between; align-items:center;
+    margin-top:2rem; padding-top:1.5rem;
+    border-top:1px solid var(--border);
+  }
+  .quiz-btn {
+    padding:10px 28px; font-size:0.7rem; letter-spacing:0.15em;
+    text-transform:uppercase; cursor:pointer;
+    font-family:'Montserrat',sans-serif; transition:all 0.3s;
+  }
+  .quiz-btn.prev { background:none; border:1px solid var(--border); color:var(--white); }
+  .quiz-btn.prev:hover { border-color:var(--gold); color:var(--gold); }
+  .quiz-btn.next { background:var(--gold); border:none; color:var(--black); font-weight:600; }
+  .quiz-btn.next:hover { background:var(--gold-light); }
+  .quiz-btn:disabled { opacity:0.3; cursor:not-allowed; }
+
+  /* Results */
+  .result-panel {
+    display:none;
+    background:var(--card); border:1px solid var(--border); padding:3rem;
+  }
+  .result-panel.show { display:block; animation:fadeUp 0.6s ease; }
+
+  .result-badge {
+    display:inline-flex; align-items:center; gap:1rem;
+    background:rgba(201,168,76,0.1); border:1px solid var(--border);
+    padding:1rem 1.5rem; margin-bottom:2rem;
+  }
+  .result-badge-icon { font-size:2rem; }
+  .result-badge-text {
+    font-family:'Cinzel',serif; font-size:1.1rem; color:var(--gold);
+  }
+
+  .result-verse {
+    font-family:'Cormorant Garamond',serif;
+    font-size:1.2rem; font-style:italic;
+    color:rgba(245,240,232,0.8); line-height:1.7;
+    border-left:3px solid var(--gold); padding-left:1.5rem;
+    margin:1.5rem 0;
+  }
+
+  .result-steps { margin:2rem 0; }
+  .result-steps h4 {
+    font-family:'Cinzel',serif; font-size:0.85rem; letter-spacing:0.15em;
+    color:var(--gold); margin-bottom:1rem; text-transform:uppercase;
+  }
+  .result-step {
+    display:flex; gap:1rem; align-items:flex-start;
+    padding:0.8rem 0; border-bottom:1px solid rgba(255,255,255,0.05);
+  }
+  .step-num {
+    width:24px; height:24px; min-width:24px;
+    background:var(--gold); color:var(--black);
+    font-size:0.65rem; font-weight:700;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Cinzel',serif;
+  }
+  .step-text { font-size:0.82rem; color:rgba(245,240,232,0.7); line-height:1.6; }
+
+  .result-cta { margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap; }
+
+  /* ===== TEACHINGS ===== */
+  #teachings { background:var(--black); }
+
+  .teachings-grid {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:2rem;
+    max-width:1200px; margin:3rem auto 0;
+  }
+  .teaching-card {
+    border:1px solid var(--border); padding:2rem;
+    background:var(--card); transition:all 0.3s;
+    position:relative;
+  }
+  .teaching-card:hover { border-color:var(--gold); transform:translateY(-3px); }
+  .teaching-tag {
+    font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:1rem; display:block;
+  }
+  .teaching-title {
+    font-family:'Cinzel',serif; font-size:1rem;
+    color:var(--white-pure); margin-bottom:0.8rem; line-height:1.4;
+  }
+  .teaching-excerpt {
+    font-size:0.8rem; color:rgba(245,240,232,0.55); line-height:1.7;
+    margin-bottom:1.5rem;
+  }
+  .teaching-verse {
+    font-family:'Cormorant Garamond',serif; font-style:italic;
+    font-size:0.9rem; color:rgba(201,168,76,0.7);
+    padding-top:1rem; border-top:1px solid var(--border);
+  }
+
+  /* ===== LEADERSHIP ===== */
+  #leadership { background:var(--deep); }
+
+  .leadership-grid {
+    display:grid; grid-template-columns:1fr 1fr; gap:3rem;
+    max-width:1100px; margin:3rem auto 0;
+  }
+  .lead-card {
+    background:var(--card); border:1px solid var(--border); padding:2.5rem;
+    transition:all 0.3s;
+  }
+  .lead-card:hover { border-color:var(--gold); }
+  .lead-icon { font-size:2.5rem; margin-bottom:1rem; }
+  .lead-title {
+    font-family:'Cinzel',serif; font-size:1.1rem;
+    color:var(--gold); margin-bottom:0.8rem;
+  }
+  .lead-desc {
+    font-size:0.82rem; color:rgba(245,240,232,0.6); line-height:1.8;
+    margin-bottom:1.5rem;
+  }
+  .lead-points { list-style:none; display:flex; flex-direction:column; gap:0.5rem; }
+  .lead-points li {
+    font-size:0.8rem; color:rgba(245,240,232,0.65); line-height:1.6;
+    padding-left:1rem; position:relative;
+  }
+  .lead-points li::before {
+    content:''; position:absolute; left:0; top:9px;
+    width:4px; height:4px; background:var(--gold); border-radius:50%;
+  }
+
+  /* ===== COUNSELING ===== */
+  #counseling {
+    background:linear-gradient(135deg, #0a0a0a 0%, #161008 50%, #0a0a0a 100%);
+    position:relative; overflow:hidden;
+  }
+  #counseling::before {
+    content:'';
+    position:absolute; inset:0;
+    background:radial-gradient(ellipse at 50% 50%, rgba(201,168,76,0.06) 0%, transparent 70%);
+  }
+
+  .counseling-inner { max-width:800px; margin:0 auto; text-align:center; position:relative; z-index:1; }
+
+  .counsel-verse {
+    font-family:'Cormorant Garamond',serif; font-size:1.5rem;
+    font-style:italic; color:rgba(245,240,232,0.75);
+    line-height:1.7; margin:2rem 0;
+  }
+
+  .contact-cards {
+    display:flex; gap:1.5rem; justify-content:center; flex-wrap:wrap;
+    margin:3rem 0;
+  }
+  .contact-card {
+    background:var(--card); border:1px solid var(--border);
+    padding:2rem 2.5rem; text-align:center;
+    transition:all 0.3s; min-width:240px;
+    text-decoration:none;
+  }
+  .contact-card:hover { border-color:var(--gold); transform:translateY(-4px); }
+  .contact-icon { font-size:2.5rem; margin-bottom:1rem; }
+  .contact-label {
+    font-size:0.6rem; letter-spacing:0.25em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:0.5rem; display:block;
+  }
+  .contact-value {
+    font-family:'Cinzel',serif; font-size:1rem;
+    color:var(--white-pure);
+  }
+
+  .counseling-cta { margin-top:1rem; }
+
+  /* ===== REVIVAL STRIP ===== */
+  .revival-strip {
+    background:var(--gold);
+    padding:50px 5%;
+    text-align:center;
+  }
+  .revival-strip h2 {
+    font-family:'Cinzel Decorative',serif;
+    font-size:clamp(1.2rem,3vw,2.5rem);
+    color:var(--black); margin-bottom:1rem;
+  }
+  .revival-strip p {
+    font-size:0.85rem; color:rgba(10,10,10,0.7);
+    margin-bottom:1.5rem; letter-spacing:0.05em;
+  }
+  .btn-dark {
+    background:var(--black); color:var(--gold);
+    padding:12px 32px; font-size:0.7rem; font-weight:600;
+    letter-spacing:0.2em; text-transform:uppercase;
+    border:none; cursor:pointer; font-family:'Montserrat',sans-serif;
+    transition:all 0.3s; text-decoration:none; display:inline-block;
+  }
+  .btn-dark:hover { background:#1a1a1a; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background:var(--deep);
+    border-top:1px solid var(--border);
+    padding:60px 5% 30px;
+  }
+  .footer-grid {
+    display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:3rem;
+    max-width:1200px; margin:0 auto 3rem;
+  }
+  .footer-brand-title {
+    font-family:'Cinzel',serif; font-size:1.2rem;
+    color:var(--gold); margin-bottom:1rem;
+  }
+  .footer-desc {
+    font-size:0.78rem; color:rgba(245,240,232,0.45); line-height:1.8;
+    margin-bottom:1.5rem;
+  }
+  .footer-col-title {
+    font-family:'Cinzel',serif; font-size:0.75rem;
+    letter-spacing:0.15em; color:var(--white-pure);
+    margin-bottom:1.2rem; text-transform:uppercase;
+  }
+  .footer-links { list-style:none; display:flex; flex-direction:column; gap:0.6rem; }
+  .footer-links a {
+    font-size:0.78rem; color:rgba(245,240,232,0.45);
+    text-decoration:none; transition:color 0.3s; cursor:pointer;
+  }
+  .footer-links a:hover { color:var(--gold); }
+  .footer-bottom {
+    text-align:center; padding-top:2rem; border-top:1px solid var(--border);
+    font-size:0.7rem; color:rgba(245,240,232,0.25); letter-spacing:0.1em;
+    max-width:1200px; margin:0 auto;
+  }
+
+  /* ===== MOBILE NAV MENU ===== */
+  .mobile-menu {
+    display:none; position:fixed;
+    top:70px; left:0; right:0; bottom:0;
+    background:rgba(10,10,10,0.98);
+    z-index:999; flex-direction:column;
+    align-items:center; justify-content:center; gap:2rem;
+  }
+  .mobile-menu.open { display:flex; }
+  .mobile-menu a {
+    color:var(--white); text-decoration:none;
+    font-family:'Cinzel',serif; font-size:1.3rem; letter-spacing:0.15em;
+    transition:color 0.3s;
+  }
+  .mobile-menu a:hover { color:var(--gold); }
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:900px) {
+    .about-grid { grid-template-columns:1fr; gap:3rem; }
+    .about-visual { display:none; }
+    .audience-grid { grid-template-columns:1fr 1fr; }
+    .teachings-grid { grid-template-columns:1fr 1fr; }
+    .leadership-grid { grid-template-columns:1fr; }
+    .footer-grid { grid-template-columns:1fr 1fr; }
+    .nav-links { display:none; }
+    .hamburger { display:flex; }
+  }
+  @media(max-width:600px) {
+    section { padding:70px 5%; }
+    .audience-grid { grid-template-columns:1fr; }
+    .teachings-grid { grid-template-columns:1fr; }
+    .footer-grid { grid-template-columns:1fr; }
+    .quiz-container { padding:1.5rem; }
+    .result-panel { padding:1.5rem; }
+  }
+
+  /* ===== PAGE TRANSITIONS ===== */
+  .page { display:none; }
+  .page.active { display:block; }
+
+  /* FLOATING CTA */
+  .floating-cta {
+    position:fixed; bottom:2rem; right:2rem; z-index:999;
+    background:var(--gold); color:var(--black);
+    padding:12px 20px; font-size:0.65rem; font-weight:700;
+    letter-spacing:0.15em; text-transform:uppercase;
+    cursor:pointer; border:none;
+    font-family:'Montserrat',sans-serif;
+    box-shadow:0 8px 40px rgba(201,168,76,0.4);
+    transition:all 0.3s; text-decoration:none;
+    display:flex; align-items:center; gap:8px;
+  }
+  .floating-cta:hover { background:var(--gold-light); transform:translateY(-2px); }
+
+  /* MODAL */
+  .modal-overlay {
+    display:none; position:fixed; inset:0; z-index:2000;
+    background:rgba(0,0,0,0.85); backdrop-filter:blur(8px);
+    align-items:center; justify-content:center;
+  }
+  .modal-overlay.open { display:flex; }
+  .modal-box {
+    background:var(--card); border:1px solid var(--border);
+    padding:3rem; max-width:500px; width:90%;
+    animation:fadeUp 0.4s ease;
+  }
+  .modal-title {
+    font-family:'Cinzel',serif; font-size:1.3rem; color:var(--gold);
+    margin-bottom:1rem;
+  }
+  .modal-body { font-size:0.85rem; color:rgba(245,240,232,0.65); line-height:1.8; margin-bottom:2rem; }
+  .modal-close {
+    position:absolute; top:1.5rem; right:1.5rem;
+    background:none; border:none; color:var(--grey); cursor:pointer;
+    font-size:1.5rem; line-height:1;
+  }
+  .modal-box { position:relative; }
+</style>
+</head>
+<body>
+
+<!-- FLOATING CTA -->
+<a href="tel:671187375" class="floating-cta">📞 <span data-en="Talk to Counselor" data-fr="Parler à un conseiller">Talk to Counselor</span></a>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="logo" onclick="scrollToSection('home')">
+    <div class="logo-mark"></div>
+    <div class="logo-text-wrap">
+      <span class="logo-main">APW</span>
+      <span class="logo-sub" data-en="The Apostolic Pathway" data-fr="La Voie Apostolique">The Apostolic Pathway</span>
+    </div>
+  </a>
+
+  <div class="nav-links">
+    <a href="#home" onclick="scrollToSection('home')" data-en="Home" data-fr="Accueil">Home</a>
+    <a href="#about" onclick="scrollToSection('about')" data-en="About" data-fr="À Propos">About</a>
+    <a href="#audience" onclick="scrollToSection('audience')" data-en="Who We Serve" data-fr="Qui Nous Servons">Who We Serve</a>
+    <a href="#assessment" onclick="scrollToSection('assessment')" data-en="Assessment" data-fr="Évaluation">Assessment</a>
+    <a href="#teachings" onclick="scrollToSection('teachings')" data-en="Teachings" data-fr="Enseignements">Teachings</a>
+    <a href="#counseling" onclick="scrollToSection('counseling')" data-en="Counseling" data-fr="Conseil">Counseling</a>
+  </div>
+
+  <div class="nav-right">
+    <button class="lang-toggle" onclick="toggleLang()" id="langBtn">🇫🇷 Français</button>
+    <a href="#counseling" onclick="scrollToSection('counseling')" class="nav-cta" data-en="Get Help" data-fr="Obtenir de l'Aide">Get Help</a>
+    <div class="hamburger" onclick="toggleMobile()" id="hamburger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#home" onclick="scrollToSection('home');toggleMobile()" data-en="Home" data-fr="Accueil">Home</a>
+  <a href="#about" onclick="scrollToSection('about');toggleMobile()" data-en="About" data-fr="À Propos">About</a>
+  <a href="#audience" onclick="scrollToSection('audience');toggleMobile()" data-en="Who We Serve" data-fr="Qui Nous Servons">Who We Serve</a>
+  <a href="#assessment" onclick="scrollToSection('assessment');toggleMobile()" data-en="Assessment" data-fr="Évaluation">Assessment</a>
+  <a href="#teachings" onclick="scrollToSection('teachings');toggleMobile()" data-en="Teachings" data-fr="Enseignements">Teachings</a>
+  <a href="#counseling" onclick="scrollToSection('counseling');toggleMobile()" data-en="Counseling" data-fr="Conseil">Counseling</a>
+</div>
+
+<!-- ==================== HERO ==================== -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-lines"></div>
+  <div class="cross-watermark">✝</div>
+  <div class="hero-content">
+    <div class="hero-eyebrow" data-en="A Call to Restoration & Revival" data-fr="Un Appel à la Restauration et au Réveil">A Call to Restoration & Revival</div>
+    <h1 class="hero-title">The <span>Apostolic</span><br>Pathway</h1>
+    <p class="hero-tagline" data-en='"Restoring the Church to Truth, Power and True Discipleship."' data-fr='"Restaurer l'Église à la Vérité, à la Puissance et au Vrai Discipulat."'>"Restoring the Church to Truth, Power and True Discipleship."</p>
+    <p class="hero-verse" data-en='"And He gave some, apostles; and some, prophets… for the perfecting of the saints, for the work of the ministry." — Ephesians 4:11-12' data-fr='"Et il a donné les uns comme apôtres… pour le perfectionnement des saints, pour l'œuvre du ministère." — Éphésiens 4:11-12'>"And He gave some, apostles; and some, prophets… for the perfecting of the saints, for the work of the ministry." — Ephesians 4:11-12</p>
+    <div class="hero-btns">
+      <button class="btn-gold" onclick="scrollToSection('assessment')" data-en="Start Your Assessment" data-fr="Commencer l'Évaluation">Start Your Assessment</button>
+      <button class="btn-outline" onclick="scrollToSection('about')" data-en="Discover More" data-fr="En Savoir Plus">Discover More</button>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track" id="marqueeTrack">
+    <span class="marquee-item">Truth <span>✦</span></span>
+    <span class="marquee-item">Revival <span>✦</span></span>
+    <span class="marquee-item">Restoration <span>✦</span></span>
+    <span class="marquee-item">Discipleship <span>✦</span></span>
+    <span class="marquee-item">Power <span>✦</span></span>
+    <span class="marquee-item">Holiness <span>✦</span></span>
+    <span class="marquee-item">Purpose <span>✦</span></span>
+    <span class="marquee-item">Apostolic Mandate <span>✦</span></span>
+    <span class="marquee-item">True Ministry <span>✦</span></span>
+    <span class="marquee-item">The Living Church <span>✦</span></span>
+    <!-- duplicate for seamless loop -->
+    <span class="marquee-item">Truth <span>✦</span></span>
+    <span class="marquee-item">Revival <span>✦</span></span>
+    <span class="marquee-item">Restoration <span>✦</span></span>
+    <span class="marquee-item">Discipleship <span>✦</span></span>
+    <span class="marquee-item">Power <span>✦</span></span>
+    <span class="marquee-item">Holiness <span>✦</span></span>
+    <span class="marquee-item">Purpose <span>✦</span></span>
+    <span class="marquee-item">Apostolic Mandate <span>✦</span></span>
+    <span class="marquee-item">True Ministry <span>✦</span></span>
+    <span class="marquee-item">The Living Church <span>✦</span></span>
+  </div>
+</div>
+
+<!-- ==================== ABOUT ==================== -->
+<section id="about">
+  <div class="about-grid">
+    <div>
+      <span class="section-label" data-en="Our Foundation" data-fr="Notre Fondation">Our Foundation</span>
+      <h2 class="section-title" data-en="The <span>Apostolic</span> Mandate" data-fr="Le <span>Mandat</span> Apostolique">The <span>Apostolic</span> Mandate</h2>
+      <div class="divider"></div>
+      <p class="section-desc" data-en="The Apostolic Pathway is not just a website — it is a divine response to the crisis in the modern Church. We exist to restore believers, equip leaders, and revive the body of Christ to her original power and purpose." data-fr="La Voie Apostolique n'est pas qu'un simple site web — c'est une réponse divine à la crise dans l'Église moderne. Nous existons pour restaurer les croyants, équiper les leaders et raviver le corps du Christ à sa puissance et son but d'origine.">The Apostolic Pathway is not just a website — it is a divine response to the crisis in the modern Church. We exist to restore believers, equip leaders, and revive the body of Christ to her original power and purpose.</p>
+
+      <div class="vision-cards">
+        <div class="vision-card">
+          <h4 data-en="Our Vision" data-fr="Notre Vision">Our Vision</h4>
+          <p data-en="A Church fully restored to apostolic doctrine, spiritual power, and transformational discipleship that impacts nations." data-fr="Une Église pleinement restaurée à la doctrine apostolique, à la puissance spirituelle et au discipulat transformationnel qui impacte les nations.">A Church fully restored to apostolic doctrine, spiritual power, and transformational discipleship that impacts nations.</p>
+        </div>
+        <div class="vision-card">
+          <h4 data-en="Our Mission" data-fr="Notre Mission">Our Mission</h4>
+          <p data-en="To provide Spirit-filled teachings, assessments, and counseling that heal, restore, and raise true disciples of Jesus Christ in the African Church and beyond." data-fr="Fournir des enseignements remplis de l'Esprit, des évaluations et des conseils qui guérissent, restaurent et élèvent de vrais disciples de Jésus-Christ dans l'Église africaine et au-delà.">To provide Spirit-filled teachings, assessments, and counseling that heal, restore, and raise true disciples of Jesus Christ in the African Church and beyond.</p>
+        </div>
+        <div class="vision-card">
+          <h4 data-en="Our Apostolic Stand" data-fr="Notre Position Apostolique">Our Apostolic Stand</h4>
+          <p data-en="We stand on the uncompromising truth of God's Word, calling the Church back to holiness, servant leadership, and genuine kingdom impact." data-fr="Nous nous tenons sur la vérité inébranlable de la Parole de Dieu, appelant l'Église au retour à la sainteté, au leadership serviteur et à un véritable impact du royaume.">We stand on the uncompromising truth of God's Word, calling the Church back to holiness, servant leadership, and genuine kingdom impact.</p>
+        </div>
+      </div>
+    </div>
+    <div class="about-visual">
+      <div class="cross-glow"></div>
+      <div class="about-cross"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== AUDIENCE ==================== -->
+<section id="audience">
+  <span class="section-label" data-en="Who We Serve" data-fr="Qui Nous Servons">Who We Serve</span>
+  <h2 class="section-title" data-en="Every Believer Has a <span>Pathway</span> Home" data-fr="Chaque Croyant a un <span>Chemin</span> vers la Maison">Every Believer Has a <span>Pathway</span> Home</h2>
+  <div class="divider"></div>
+
+  <div class="audience-grid">
+    <!-- Card 1 -->
+    <div class="audience-card" onclick="startAssessment('converts')">
+      <div class="card-number">01</div>
+      <div class="card-icon">🌱</div>
+      <div class="card-title" data-en="New Converts" data-fr="Nouveaux Convertis">New Converts</div>
+      <p class="card-problem" data-en="Struggling with weak foundations, lack of follow-up, and confusion about the Christian walk." data-fr="Luttant avec des fondements faibles, un manque de suivi et de la confusion sur la marche chrétienne.">Struggling with weak foundations, lack of follow-up, and confusion about the Christian walk.</p>
+      <p class="card-solution" data-en="Structured discipleship pathways and foundational apostolic teachings await you." data-fr="Des voies de discipulat structurées et des enseignements apostoliques fondamentaux vous attendent.">Structured discipleship pathways and foundational apostolic teachings await you.</p>
+      <button class="card-btn" data-en="Start Assessment →" data-fr="Commencer l'Évaluation →">Start Assessment →</button>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="audience-card" onclick="startAssessment('backsliders')">
+      <div class="card-number">02</div>
+      <div class="card-icon">💔</div>
+      <div class="card-title" data-en="Backsliders" data-fr="Ceux qui ont Reculé">Backsliders</div>
+      <p class="card-problem" data-en="Wounded by church hurt, offense, isolation, or a gradual loss of faith and passion for God." data-fr="Blessés par des douleurs ecclésiales, des offenses, l'isolement ou une perte graduelle de foi et de passion pour Dieu.">Wounded by church hurt, offense, isolation, or a gradual loss of faith and passion for God.</p>
+      <p class="card-solution" data-en="Healing content, restoration steps, and God's unchanging love are ready to receive you back." data-fr="Du contenu de guérison, des étapes de restauration et l'amour immuable de Dieu sont prêts à vous accueillir.">Healing content, restoration steps, and God's unchanging love are ready to receive you back.</p>
+      <button class="card-btn" data-en="Start Assessment →" data-fr="Commencer l'Évaluation →">Start Assessment →</button>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="audience-card" onclick="startAssessment('workers')">
+      <div class="card-number">03</div>
+      <div class="card-icon">⚙️</div>
+      <div class="card-title" data-en="Church Workers" data-fr="Travailleurs d'Église">Church Workers</div>
+      <p class="card-problem" data-en="Trapped in lukewarm service, competition, performance-driven ministry, and 'eye service'." data-fr="Piégés dans un service tiède, la compétition, un ministère axé sur la performance et le 'service de façade'.">Trapped in lukewarm service, competition, performance-driven ministry, and 'eye service'.</p>
+      <p class="card-solution" data-en="Heart-check teachings and servant leadership training to reignite your God-given calling." data-fr="Des enseignements d'examen du cœur et une formation en leadership serviteur pour rallumer votre vocation donnée par Dieu.">Heart-check teachings and servant leadership training to reignite your God-given calling.</p>
+      <button class="card-btn" data-en="Start Assessment →" data-fr="Commencer l'Évaluation →">Start Assessment →</button>
+    </div>
+
+    <!-- Card 4 -->
+    <div class="audience-card" onclick="startAssessment('leaders')">
+      <div class="card-number">04</div>
+      <div class="card-icon">🏛️</div>
+      <div class="card-title" data-en="Church Leaders" data-fr="Dirigeants d'Église">Church Leaders</div>
+      <p class="card-problem" data-en="Misaligned with God's vision, lacking clarity of direction, or navigating internal church conflict." data-fr="Désalignés avec la vision de Dieu, manquant de clarté de direction, ou naviguant dans un conflit ecclésial interne.">Misaligned with God's vision, lacking clarity of direction, or navigating internal church conflict.</p>
+      <p class="card-solution" data-en="Vision clarity tools and leadership development resources rooted in apostolic principles." data-fr="Des outils de clarté de vision et des ressources de développement du leadership enracinés dans les principes apostoliques.">Vision clarity tools and leadership development resources rooted in apostolic principles.</p>
+      <button class="card-btn" data-en="Start Assessment →" data-fr="Commencer l'Évaluation →">Start Assessment →</button>
+    </div>
+
+    <!-- Card 5 -->
+    <div class="audience-card" onclick="startAssessment('pastors')">
+      <div class="card-number">05</div>
+      <div class="card-icon">🕊️</div>
+      <div class="card-title" data-en="Pastors" data-fr="Pasteurs">Pastors</div>
+      <p class="card-problem" data-en="Experiencing burnout, weariness, shallow discipleship culture, or carrying the flock alone." data-fr="Vivant l'épuisement, la lassitude, une culture de discipulat superficielle, ou portant le troupeau seul.">Experiencing burnout, weariness, shallow discipleship culture, or carrying the flock alone.</p>
+      <p class="card-solution" data-en="Renewal teachings, apostolic leadership resources, and a community of restoration for shepherds." data-fr="Des enseignements de renouveau, des ressources de leadership apostolique et une communauté de restauration pour les bergers.">Renewal teachings, apostolic leadership resources, and a community of restoration for shepherds.</p>
+      <button class="card-btn" data-en="Start Assessment →" data-fr="Commencer l'Évaluation →">Start Assessment →</button>
+    </div>
+
+    <!-- Card 6 -->
+    <div class="audience-card" onclick="startAssessment('church')">
+      <div class="card-number">06</div>
+      <div class="card-icon">⛪</div>
+      <div class="card-title" data-en="The Church at Large" data-fr="L'Église dans son Ensemble">The Church at Large</div>
+      <p class="card-problem" data-en="Caught in religious activity without genuine transformation — programs without real spiritual impact." data-fr="Pris dans des activités religieuses sans véritable transformation — des programmes sans vrai impact spirituel.">Caught in religious activity without genuine transformation — programs without real spiritual impact.</p>
+      <p class="card-solution" data-en="Teaching on true ministry and building God-honoring discipleship systems that transform communities." data-fr="Enseignement sur le vrai ministère et la construction de systèmes de discipulat honorant Dieu qui transforment les communautés.">Teaching on true ministry and building discipleship systems that transform communities.</p>
+      <button class="card-btn" data-en="Start Assessment →" data-fr="Commencer l'Évaluation →">Start Assessment →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== ASSESSMENT HUB ==================== -->
+<section id="assessment">
+  <span class="section-label" data-en="Interactive Diagnostic" data-fr="Diagnostic Interactif">Interactive Diagnostic</span>
+  <h2 class="section-title" data-en="Discover Your <span>Spiritual</span> Condition" data-fr="Découvrez Votre <span>État</span> Spirituel">Discover Your <span>Spiritual</span> Condition</h2>
+  <div class="divider"></div>
+  <p class="section-desc" data-en="Our 15-question assessment will reveal your current spiritual state, uncover hidden struggles, and provide personalized biblical guidance and action steps just for you." data-fr="Notre évaluation de 15 questions révélera votre état spirituel actuel, découvrira les luttes cachées et fournira des conseils bibliques personnalisés et des étapes d'action juste pour vous.">Our 15-question assessment will reveal your current spiritual state, uncover hidden struggles, and provide personalized biblical guidance and action steps just for you.</p>
+
+  <div class="assessment-center">
+    <div class="category-tabs">
+      <button class="cat-tab active" onclick="selectCategory('converts',this)" data-en="New Converts" data-fr="Nouveaux Convertis">New Converts</button>
+      <button class="cat-tab" onclick="selectCategory('backsliders',this)" data-en="Backsliders" data-fr="Ceux qui ont Reculé">Backsliders</button>
+      <button class="cat-tab" onclick="selectCategory('workers',this)" data-en="Church Workers" data-fr="Travailleurs">Church Workers</button>
+      <button class="cat-tab" onclick="selectCategory('leaders',this)" data-en="Leaders" data-fr="Dirigeants">Leaders</button>
+      <button class="cat-tab" onclick="selectCategory('pastors',this)" data-en="Pastors" data-fr="Pasteurs">Pastors</button>
+      <button class="cat-tab" onclick="selectCategory('church',this)" data-en="The Church" data-fr="L'Église">The Church</button>
+    </div>
+
+    <div class="quiz-container" id="quizContainer">
+      <div class="quiz-header">
+        <div class="quiz-title" id="quizTitle">New Converts Assessment</div>
+        <div class="quiz-subtitle" id="quizSubtitle" data-en="Answer honestly. God already knows — this is for your healing." data-fr="Répondez honnêtement. Dieu sait déjà — c'est pour votre guérison.">Answer honestly. God already knows — this is for your healing.</div>
+      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:6.67%"></div></div>
+      <div class="progress-text" id="progressText">Question 1 of 15</div>
+
+      <div id="questionsWrap"></div>
+
+      <div class="quiz-nav">
+        <button class="quiz-btn prev" id="prevBtn" onclick="prevQ()" disabled data-en="← Previous" data-fr="← Précédent">← Previous</button>
+        <button class="quiz-btn next" id="nextBtn" onclick="nextQ()" data-en="Next →" data-fr="Suivant →">Next →</button>
+      </div>
+    </div>
+
+    <div class="result-panel" id="resultPanel">
+      <div id="resultContent"></div>
+      <div class="result-cta">
+        <button class="btn-gold" onclick="restartQuiz()" data-en="Take Assessment Again" data-fr="Reprendre l'Évaluation">Take Assessment Again</button>
+        <a href="tel:671187375" class="btn-outline" data-en="📞 Speak to a Counselor" data-fr="📞 Parler à un Conseiller">📞 Speak to a Counselor</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== TEACHINGS ==================== -->
+<section id="teachings">
+  <span class="section-label" data-en="Resources & Teachings" data-fr="Ressources & Enseignements">Resources & Teachings</span>
+  <h2 class="section-title" data-en="Feed Your <span>Spirit</span>,<br>Transform Your <span>Life</span>" data-fr="Nourrissez votre <span>Esprit</span>,<br>Transformez votre <span>Vie</span>">Feed Your <span>Spirit</span>,<br>Transform Your <span>Life</span></h2>
+  <div class="divider"></div>
+
+  <div class="teachings-grid">
+    <div class="teaching-card">
+      <span class="teaching-tag" data-en="Foundational" data-fr="Fondamental">Foundational</span>
+      <div class="teaching-title" data-en="The Cost of True Discipleship" data-fr="Le Prix du Vrai Discipulat">The Cost of True Discipleship</div>
+      <p class="teaching-excerpt" data-en="Jesus never promised comfort — He promised transformation. Discover what it truly means to follow Christ and count the cost of genuine discipleship in the modern age." data-fr="Jésus n'a jamais promis le confort — Il a promis la transformation. Découvrez ce que signifie vraiment suivre Christ et compter le coût du vrai discipulat à l'ère moderne.">Jesus never promised comfort — He promised transformation. Discover what it truly means to follow Christ and count the cost of genuine discipleship in the modern age.</p>
+      <div class="teaching-verse">"Then he said to them all: Whoever wants to be my disciple must deny themselves…" — Luke 9:23</div>
+    </div>
+
+    <div class="teaching-card">
+      <span class="teaching-tag" data-en="Restoration" data-fr="Restauration">Restoration</span>
+      <div class="teaching-title" data-en="Returning to Your First Love" data-fr="Retourner à Votre Premier Amour">Returning to Your First Love</div>
+      <p class="teaching-excerpt" data-en="Many believers have drifted from the fire they once had. This teaching addresses the spiritual coldness that creeps in and shows the path back to passionate devotion to God." data-fr="De nombreux croyants se sont éloignés du feu qu'ils avaient autrefois. Cet enseignement aborde la froideur spirituelle qui s'installe et montre le chemin de retour à une dévotion passionnée à Dieu.">Many believers have drifted from the fire they once had. This teaching addresses the spiritual coldness that creeps in and shows the path back to passionate devotion to God.</p>
+      <div class="teaching-verse">"Remember therefore from where you have fallen; repent, and do the works you did at first." — Revelation 2:5</div>
+    </div>
+
+    <div class="teaching-card">
+      <span class="teaching-tag" data-en="Leadership" data-fr="Leadership">Leadership</span>
+      <div class="teaching-title" data-en="Servant Leadership: The Apostolic Model" data-fr="Leadership Serviteur: Le Modèle Apostolique">Servant Leadership: The Apostolic Model</div>
+      <p class="teaching-excerpt" data-en="True apostolic leadership is not about titles, position, or recognition. It is about washing feet and building people. Discover the model Jesus demonstrated and the apostles carried forward." data-fr="Le vrai leadership apostolique n'est pas une question de titres, de position ou de reconnaissance. Il s'agit de laver les pieds et de construire les personnes. Découvrez le modèle que Jésus a démontré et que les apôtres ont poursuivi.">True apostolic leadership is not about titles — it is about washing feet and building people. Discover the model Jesus demonstrated.</p>
+      <div class="teaching-verse">"But whoever would be great among you must be your servant." — Matthew 20:26</div>
+    </div>
+
+    <div class="teaching-card">
+      <span class="teaching-tag" data-en="Revival" data-fr="Réveil">Revival</span>
+      <div class="teaching-title" data-en="The Fire That Never Goes Out" data-fr="Le Feu Qui Ne S'Éteint Jamais">The Fire That Never Goes Out</div>
+      <p class="teaching-excerpt" data-en="Understanding the apostolic anointing, the role of the Holy Spirit in revival, and how individual believers can carry the flame of God's presence in their daily walk." data-fr="Comprendre l'onction apostolique, le rôle du Saint-Esprit dans le réveil et comment les croyants individuels peuvent porter la flamme de la présence de Dieu dans leur marche quotidienne.">Understanding the apostolic anointing and how believers can carry the flame of God's presence in their daily walk.</p>
+      <div class="teaching-verse">"Do not quench the Spirit." — 1 Thessalonians 5:19</div>
+    </div>
+
+    <div class="teaching-card">
+      <span class="teaching-tag" data-en="Healing" data-fr="Guérison">Healing</span>
+      <div class="teaching-title" data-en="When the Church Hurts You" data-fr="Quand l'Église Vous Blesse">When the Church Hurts You</div>
+      <p class="teaching-excerpt" data-en="Church hurt is real, and many believers carry wounds inflicted in the very house of God. This honest, grace-filled teaching addresses how to heal, forgive, and not abandon your calling." data-fr="La douleur ecclésiale est réelle, et de nombreux croyants portent des blessures infligées dans la maison de Dieu. Cet enseignement honnête et plein de grâce aborde comment guérir, pardonner et ne pas abandonner votre vocation.">Church hurt is real. This grace-filled teaching addresses how to heal, forgive, and not abandon your calling because of people's failures.</p>
+      <div class="teaching-verse">"He heals the brokenhearted and binds up their wounds." — Psalm 147:3</div>
+    </div>
+
+    <div class="teaching-card">
+      <span class="teaching-tag" data-en="Holiness" data-fr="Sainteté">Holiness</span>
+      <div class="teaching-title" data-en="The Standard of Holiness in a Compromised Age" data-fr="La Norme de la Sainteté à une Époque Compromise">The Standard of Holiness in a Compromised Age</div>
+      <p class="teaching-excerpt" data-en="In a world that has redefined morality and an age where the Church has lowered its standards, this teaching calls believers to the uncompromising standard of God's holiness." data-fr="Dans un monde qui a redéfini la moralité, cet enseignement appelle les croyants à la norme inébranlable de la sainteté de Dieu.">In a world that has lowered moral standards, this teaching calls believers to God's uncompromising standard of holiness.</p>
+      <div class="teaching-verse">"But as he who called you is holy, you also be holy in all your conduct." — 1 Peter 1:15</div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== LEADERSHIP ==================== -->
+<section id="leadership">
+  <span class="section-label" data-en="Leadership Development" data-fr="Développement du Leadership">Leadership Development</span>
+  <h2 class="section-title" data-en="Building Leaders Who <span>Build</span> the Church" data-fr="Former des Leaders qui <span>Construisent</span> l'Église">Building Leaders Who <span>Build</span> the Church</h2>
+  <div class="divider"></div>
+  <p class="section-desc" data-en="The health of the Church is directly tied to the health of her leaders. We equip those God has placed in authority with apostolic wisdom, practical tools, and biblical foundations." data-fr="La santé de l'Église est directement liée à la santé de ses leaders. Nous équipons ceux que Dieu a placés en autorité avec la sagesse apostolique, des outils pratiques et des fondements bibliques.">The health of the Church is directly tied to the health of her leaders. We equip those God has placed in authority with apostolic wisdom, practical tools, and biblical foundations.</p>
+
+  <div class="leadership-grid">
+    <div class="lead-card">
+      <div class="lead-icon">🎯</div>
+      <div class="lead-title" data-en="Vision Clarity System" data-fr="Système de Clarté de Vision">Vision Clarity System</div>
+      <p class="lead-desc" data-en="Many churches are busy but not fruitful because leaders are not clear about God's specific vision for their assembly. Our vision clarity tools help leaders discern, articulate, and execute God's plan." data-fr="De nombreuses églises sont actives mais pas fructueuses parce que les leaders ne sont pas clairs sur la vision spécifique de Dieu pour leur assemblée. Nos outils de clarté de vision aident les leaders à discerner et à exécuter le plan de Dieu.">Many churches are busy but not fruitful because leaders lack God's specific vision. Our tools help you discern, articulate, and execute God's plan with clarity and confidence.</p>
+      <ul class="lead-points">
+        <li data-en="Identifying God's unique mandate for your church" data-fr="Identifier le mandat unique de Dieu pour votre église">Identifying God's unique mandate for your church</li>
+        <li data-en="Communicating vision to your congregation effectively" data-fr="Communiquer la vision à votre congrégation efficacement">Communicating vision to your congregation effectively</li>
+        <li data-en="Building a discipleship-centred church culture" data-fr="Construire une culture d'église centrée sur le discipulat">Building a discipleship-centred church culture</li>
+        <li data-en="Aligning all ministry activities with the core vision" data-fr="Aligner toutes les activités du ministère avec la vision principale">Aligning all ministry activities with the core vision</li>
+      </ul>
+    </div>
+
+    <div class="lead-card">
+      <div class="lead-icon">🔥</div>
+      <div class="lead-title" data-en="Pastor's Renewal Program" data-fr="Programme de Renouveau des Pasteurs">Pastor's Renewal Program</div>
+      <p class="lead-desc" data-en="Shepherds need shepherding too. The weariness of ministry is real, and many pastors are running on empty. This resource is a safe space for pastors to be refreshed, realigned, and renewed." data-fr="Les bergers ont aussi besoin d'être conduits. La lassitude du ministère est réelle. Cette ressource est un espace sûr pour que les pasteurs soient rafraîchis, réalignés et renouvelés.">Shepherds need shepherding too. This is a safe space for pastors to be refreshed, realigned, and renewed — without shame or judgment.</p>
+      <ul class="lead-points">
+        <li data-en="Addressing pastoral burnout and spiritual fatigue" data-fr="Aborder l'épuisement pastoral et la fatigue spirituelle">Addressing pastoral burnout and spiritual fatigue</li>
+        <li data-en="Rebuilding personal devotional discipline" data-fr="Reconstruire la discipline de dévotion personnelle">Rebuilding personal devotional discipline</li>
+        <li data-en="Navigating church conflict with grace and authority" data-fr="Naviguer dans les conflits ecclésiaux avec grâce et autorité">Navigating church conflict with grace and authority</li>
+        <li data-en="Reigniting passion for souls and true discipleship" data-fr="Rallumer la passion pour les âmes et le vrai discipulat">Reigniting passion for souls and true discipleship</li>
+      </ul>
+    </div>
+
+    <div class="lead-card">
+      <div class="lead-icon">📚</div>
+      <div class="lead-title" data-en="Discipleship System Builder" data-fr="Constructeur de Système de Discipulat">Discipleship System Builder</div>
+      <p class="lead-desc" data-en="Most African churches have large congregations but thin discipleship. This module helps churches build systematic discipleship pipelines that produce mature, mission-minded believers." data-fr="La plupart des églises africaines ont de grandes congrégations mais un discipulat mince. Ce module aide les églises à construire des pipelines de discipulat systématiques qui produisent des croyants mûrs et missionnaires.">Most churches have large congregations but thin discipleship. Build systematic discipleship pipelines that produce mature, mission-minded believers.</p>
+      <ul class="lead-points">
+        <li data-en="New converts follow-up systems and foundations classes" data-fr="Systèmes de suivi des nouveaux convertis et cours de fondements">New converts follow-up systems and foundations classes</li>
+        <li data-en="Small group and cell-based church models" data-fr="Petits groupes et modèles d'église basés sur les cellules">Small group and cell-based church models</li>
+        <li data-en="Identifying and equipping emerging leaders" data-fr="Identifier et équiper les leaders émergents">Identifying and equipping emerging leaders</li>
+        <li data-en="Creating accountability structures for spiritual growth" data-fr="Créer des structures de responsabilité pour la croissance spirituelle">Creating accountability structures for spiritual growth</li>
+      </ul>
+    </div>
+
+    <div class="lead-card">
+      <div class="lead-icon">🌍</div>
+      <div class="lead-title" data-en="The African Church Challenge" data-fr="Le Défi de l'Église Africaine">The African Church Challenge</div>
+      <p class="lead-desc" data-en="The African Church is uniquely gifted and uniquely challenged. We address the specific cultural, spiritual, and structural challenges facing the Church on the continent with biblical, practical solutions." data-fr="L'Église africaine est uniquement douée et uniquement défiée. Nous abordons les défis culturels, spirituels et structurels spécifiques auxquels fait face l'Église sur le continent avec des solutions bibliques et pratiques.">The African Church is uniquely gifted and uniquely challenged. We address specific cultural and spiritual challenges facing the Church on the continent.</p>
+      <ul class="lead-points">
+        <li data-en="Overcoming syncretism and cultural compromise" data-fr="Surmonter le syncrétisme et le compromis culturel">Overcoming syncretism and cultural compromise</li>
+        <li data-en="Building financially sustainable, discipleship-focused churches" data-fr="Construire des églises financièrement durables et axées sur le discipulat">Building financially sustainable, discipleship-focused churches</li>
+        <li data-en="Confronting prosperity gospel distortions with truth" data-fr="Confronter les distorsions de l'évangile de prospérité avec la vérité">Confronting prosperity gospel distortions with truth</li>
+        <li data-en="Raising a generation of apostolic African leaders" data-fr="Élever une génération de leaders apostoliques africains">Raising a generation of apostolic African leaders</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- REVIVAL STRIP -->
+<div class="revival-strip">
+  <h2 data-en="The Church Needs Revival. Will You Answer the Call?" data-fr="L'Église a Besoin d'un Réveil. Répondrez-Vous à l'Appel?">The Church Needs Revival. Will You Answer the Call?</h2>
+  <p data-en='"If my people, who are called by my name, will humble themselves and pray and seek my face…" — 2 Chronicles 7:14' data-fr='"Si mon peuple, qui porte mon nom, s'humilie, prie et cherche ma face…" — 2 Chroniques 7:14'>"If my people, who are called by my name, will humble themselves and pray and seek my face…" — 2 Chronicles 7:14</p>
+  <a href="#assessment" onclick="scrollToSection('assessment')" class="btn-dark" data-en="Begin Your Journey" data-fr="Commencez Votre Voyage">Begin Your Journey</a>
+</div>
+
+<!-- ==================== COUNSELING ==================== -->
+<section id="counseling">
+  <div class="counseling-inner">
+    <span class="section-label" data-en="Pastoral Counseling" data-fr="Conseil Pastoral">Pastoral Counseling</span>
+    <h2 class="section-title" data-en="You Don't Have to Walk <span>Alone</span>" data-fr="Vous N'avez Pas à Marcher <span>Seul</span>">You Don't Have to Walk <span>Alone</span></h2>
+    <div class="divider" style="margin:1.5rem auto;"></div>
+
+    <p class="counsel-verse" data-en='"Come to me, all you who are weary and burdened, and I will give you rest." — Matthew 11:28' data-fr='"Venez à moi, vous tous qui êtes fatigués et chargés, et je vous donnerai du repos." — Matthieu 11:28'>"Come to me, all you who are weary and burdened, and I will give you rest." — Matthew 11:28</p>
+
+    <p style="font-size:0.88rem; color:rgba(245,240,232,0.6); line-height:1.8; max-width:600px; margin:0 auto 2rem;" data-en="Whether you are struggling with your faith, facing church hurt, battling spiritual dryness, or seeking direction — we are here. Our counselors combine biblical truth with pastoral compassion to walk alongside you on your journey to restoration." data-fr="Que vous luttiez avec votre foi, fassiez face à des blessures ecclésiales, combattiez la sécheresse spirituelle, ou cherchiez une direction — nous sommes là. Nos conseillers combinent la vérité biblique avec la compassion pastorale pour marcher à vos côtés sur votre chemin vers la restauration.">Whether you are struggling with your faith, facing church hurt, battling spiritual dryness, or seeking direction — we are here. Our counselors combine biblical truth with pastoral compassion to walk alongside you.</p>
+
+    <div class="contact-cards">
+      <a href="tel:671187375" class="contact-card">
+        <div class="contact-icon">📞</div>
+        <span class="contact-label" data-en="Call / WhatsApp" data-fr="Appel / WhatsApp">Call / WhatsApp</span>
+        <div class="contact-value">671 187 375</div>
+      </a>
+      <a href="mailto:lukongchrysantus7@gmail.com" class="contact-card">
+        <div class="contact-icon">✉️</div>
+        <span class="contact-label" data-en="Email Us" data-fr="Envoyez-nous un Email">Email Us</span>
+        <div class="contact-value" style="font-size:0.75rem;">lukongchrysantus7@gmail.com</div>
+      </a>
+    </div>
+
+    <p style="font-size:0.8rem; color:rgba(245,240,232,0.4); letter-spacing:0.05em; margin-bottom:2rem;" data-en="All conversations are handled with complete confidentiality and pastoral sensitivity." data-fr="Toutes les conversations sont traitées avec une totale confidentialité et une sensibilité pastorale.">All conversations are handled with complete confidentiality and pastoral sensitivity.</p>
+
+    <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+      <a href="tel:671187375" class="btn-gold" data-en="📞 Call Now" data-fr="📞 Appeler Maintenant">📞 Call Now</a>
+      <a href="mailto:lukongchrysantus7@gmail.com" class="btn-outline" data-en="✉️ Send Email" data-fr="✉️ Envoyer un Email">✉️ Send Email</a>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== FOOTER ==================== -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-title">The Apostolic Pathway</div>
+      <p class="footer-desc" data-en="A divine platform dedicated to restoring the Church to Truth, Power, and True Discipleship. Serving the African Church and believers worldwide with apostolic resources, counseling, and revival teachings." data-fr="Une plateforme divine dédiée à restaurer l'Église à la Vérité, à la Puissance et au Vrai Discipulat. Servant l'Église africaine et les croyants du monde entier avec des ressources apostoliques, des conseils et des enseignements de réveil.">A divine platform dedicated to restoring the Church to Truth, Power, and True Discipleship. Serving the African Church and believers worldwide with apostolic resources.</p>
+      <p style="font-size:0.75rem; color:rgba(201,168,76,0.6); font-style:italic; font-family:'Cormorant Garamond',serif;">"For Zion's sake I will not keep silent..." — Isaiah 62:1</p>
+    </div>
+    <div>
+      <div class="footer-col-title" data-en="Navigate" data-fr="Navigation">Navigate</div>
+      <ul class="footer-links">
+        <li><a onclick="scrollToSection('home')" data-en="Home" data-fr="Accueil">Home</a></li>
+        <li><a onclick="scrollToSection('about')" data-en="About Us" data-fr="À Propos de Nous">About Us</a></li>
+        <li><a onclick="scrollToSection('audience')" data-en="Who We Serve" data-fr="Qui Nous Servons">Who We Serve</a></li>
+        <li><a onclick="scrollToSection('assessment')" data-en="Assessment Hub" data-fr="Centre d'Évaluation">Assessment Hub</a></li>
+        <li><a onclick="scrollToSection('teachings')" data-en="Teachings" data-fr="Enseignements">Teachings</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title" data-en="Resources" data-fr="Ressources">Resources</div>
+      <ul class="footer-links">
+        <li><a data-en="Discipleship Guide" data-fr="Guide de Discipulat">Discipleship Guide</a></li>
+        <li><a data-en="Devotionals" data-fr="Dévotionnels">Devotionals</a></li>
+        <li><a data-en="Leadership Resources" data-fr="Ressources de Leadership">Leadership Resources</a></li>
+        <li><a data-en="Prayer Guides" data-fr="Guides de Prière">Prayer Guides</a></li>
+        <li><a onclick="scrollToSection('counseling')" data-en="Counseling" data-fr="Conseil">Counseling</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title" data-en="Contact" data-fr="Contact">Contact</div>
+      <ul class="footer-links">
+        <li><a href="tel:671187375">📞 671 187 375</a></li>
+        <li><a href="mailto:lukongchrysantus7@gmail.com" style="word-break:break-all;">✉️ lukongchrysantus7@gmail.com</a></li>
+      </ul>
+      <div style="margin-top:1.5rem;">
+        <p style="font-size:0.65rem; letter-spacing:0.15em; color:var(--grey); text-transform:uppercase; margin-bottom:0.8rem;" data-en="Office Hours" data-fr="Heures de Bureau">Office Hours</p>
+        <p style="font-size:0.78rem; color:rgba(245,240,232,0.4);" data-en="Mon–Sat: 8AM – 8PM" data-fr="Lun–Sam: 8h – 20h">Mon–Sat: 8AM – 8PM</p>
+        <p style="font-size:0.78rem; color:rgba(245,240,232,0.4);" data-en="Sunday: After Service" data-fr="Dimanche: Après le Service">Sunday: After Service</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p data-en="© 2025 The Apostolic Pathway (APW) · All Rights Reserved · Built for the Kingdom of God" data-fr="© 2025 La Voie Apostolique (APW) · Tous Droits Réservés · Construit pour le Royaume de Dieu">© 2025 The Apostolic Pathway (APW) · All Rights Reserved · Built for the Kingdom of God</p>
+  </div>
+</footer>
+
+<!-- PRAYER MODAL -->
+<div class="modal-overlay" id="prayerModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('prayerModal')">×</button>
+    <div class="modal-title" data-en="A Prayer for You" data-fr="Une Prière pour Vous">A Prayer for You</div>
+    <p class="modal-body" data-en="Heavenly Father, I come before You for the one reading these words. You see their struggle, their weariness, their questions. Lord, let Your truth break through every confusion. Let Your love heal every wound. Restore their passion for You and Your Church. Lead them in the paths of righteousness for Your Name's sake. In Jesus' Name, Amen." data-fr="Père céleste, je me présente devant Toi pour celui qui lit ces mots. Tu vois sa lutte, sa lassitude, ses questions. Seigneur, que Ta vérité brise toute confusion. Que Ton amour guérisse toute blessure. Restaure sa passion pour Toi et pour Ton Église. Conduis-le dans les sentiers de la justice pour l'honneur de Ton Nom. Au nom de Jésus, Amen.">Heavenly Father, I come before You for the one reading these words. You see their struggle, their weariness, their questions. Lord, let Your truth break through every confusion. Let Your love heal every wound. Restore their passion for You and Your Church. Lead them in the paths of righteousness for Your Name's sake. In Jesus' Name, Amen.</p>
+    <button class="btn-gold" onclick="closeModal('prayerModal')" style="width:100%;" data-en="Receive This Prayer" data-fr="Recevoir Cette Prière">Receive This Prayer</button>
+  </div>
+</div>
+
+<script>
+// ==================== STATE ====================
+let currentLang = 'en';
+let currentCategory = 'converts';
+let currentQuestion = 0;
+let answers = [];
+
+// ==================== QUIZ DATA ====================
+const categories = {
+  converts: {
+    en: { title: "New Converts Assessment", icon: "🌱" },
+    fr: { title: "Évaluation des Nouveaux Convertis", icon: "🌱" }
+  },
+  backsliders: {
+    en: { title: "Backslider Restoration Assessment", icon: "💔" },
+    fr: { title: "Évaluation de Restauration", icon: "💔" }
+  },
+  workers: {
+    en: { title: "Church Worker Heart Check", icon: "⚙️" },
+    fr: { title: "Examen du Cœur du Travailleur", icon: "⚙️" }
+  },
+  leaders: {
+    en: { title: "Church Leader Alignment Assessment", icon: "🏛️" },
+    fr: { title: "Évaluation d'Alignement du Dirigeant", icon: "🏛️" }
+  },
+  pastors: {
+    en: { title: "Pastor's Wellness & Renewal Assessment", icon: "🕊️" },
+    fr: { title: "Évaluation du Bien-Être du Pasteur", icon: "🕊️" }
+  },
+  church: {
+    en: { title: "Church Vitality Assessment", icon: "⛪" },
+    fr: { title: "Évaluation de la Vitalité de l'Église", icon: "⛪" }
+  }
+};
+
+const quizData = {
+  converts: {
+    en: [
+      { q: "How often do you read the Bible on your own?", opts: ["Daily with consistency","A few times a week","Rarely — I don't know where to start","I haven't started yet"] },
+      { q: "When you became a Christian, did anyone follow up with you or mentor you in the faith?", opts: ["Yes, I had a strong mentor","Briefly, but not consistently","No, I was left to figure it out alone","I'm not sure what mentorship looks like"] },
+      { q: "How confident are you in explaining what it means to be saved?", opts: ["Very confident — I understand clearly","Somewhat confident","I have many doubts and questions","Not at all — I'm still confused"] },
+      { q: "Do you have a daily prayer life?", opts: ["Yes, prayer is a regular part of my day","Sometimes, when I remember","I struggle to pray consistently","I don't really pray yet"] },
+      { q: "How connected do you feel to your local church community?", opts: ["Deeply connected and involved","Somewhat connected","I attend but feel like an outsider","I don't have a church home yet"] },
+      { q: "Have you been baptized since becoming a Christian?", opts: ["Yes, in water baptism","No, but I want to be","I'm not sure if baptism is necessary","What is baptism?"] },
+      { q: "Do you struggle with habitual sin or behaviours from before your conversion?", opts: ["No, I've seen real change","Yes, but I'm fighting it","Yes, and I feel hopeless about it","I didn't know Christians had to change behaviours"] },
+      { q: "How do you handle doubt about your faith?", opts: ["I seek God through Scripture and prayer","I talk to someone in the church","I internalize it and feel confused","I almost gave up because of doubts"] },
+      { q: "Do you understand the basic doctrines of Christianity (Trinity, salvation, resurrection)?", opts: ["Yes, I have a solid foundation","Partially — I know some things","No, it's very confusing to me","I've never been taught these things"] },
+      { q: "How often do you attend church services?", opts: ["Every week without fail","2–3 times a month","Rarely","I've stopped going consistently"] },
+      { q: "Have you experienced the filling of the Holy Spirit?", opts: ["Yes, it's a real part of my life","I've had experiences but I'm unsure","I don't know what that means","No, and I want to understand it"] },
+      { q: "Are you part of any discipleship group or Bible study?", opts: ["Yes, actively involved","I've been to a few sessions","No, I don't know how to find one","I didn't know these existed"] },
+      { q: "How do you deal with persecution or mockery because of your faith?", opts: ["I stand firm and explain my faith","I feel embarrassed but try to hold on","I hide my faith to avoid trouble","I've considered abandoning my faith"] },
+      { q: "What is your biggest challenge as a new Christian?", opts: ["Understanding the Bible","Dealing with temptation","Finding community and belonging","Reconciling faith with my past life"] },
+      { q: "If you had access to a mentor or counselor right now, what would you ask for?", opts: ["A structured Bible study plan","Help overcoming a specific sin","Someone to talk to about my doubts","Prayer and spiritual support"] }
+    ],
+    fr: [
+      { q: "À quelle fréquence lisez-vous la Bible par vous-même?", opts: ["Quotidiennement avec constance","Quelques fois par semaine","Rarement — je ne sais pas par où commencer","Je n'ai pas encore commencé"] },
+      { q: "Quand vous êtes devenu chrétien, quelqu'un vous a-t-il suivi ou encadré dans la foi?", opts: ["Oui, j'avais un fort mentor","Brièvement, mais pas régulièrement","Non, j'ai dû me débrouiller seul","Je ne sais pas à quoi ressemble le mentorat"] },
+      { q: "À quel point êtes-vous confiant pour expliquer ce que signifie être sauvé?", opts: ["Très confiant — je comprends clairement","Assez confiant","J'ai beaucoup de doutes et de questions","Pas du tout — je suis encore confus"] },
+      { q: "Avez-vous une vie de prière quotidienne?", opts: ["Oui, la prière fait partie de ma journée","Parfois, quand je m'en souviens","J'ai du mal à prier régulièrement","Je ne prie pas encore vraiment"] },
+      { q: "Dans quelle mesure vous sentez-vous connecté à votre communauté d'église locale?", opts: ["Profondément connecté et impliqué","Assez connecté","Je fréquente mais me sens comme un étranger","Je n'ai pas encore de maison d'église"] },
+      { q: "Avez-vous été baptisé depuis que vous êtes devenu chrétien?", opts: ["Oui, dans le baptême d'eau","Non, mais je veux l'être","Je ne suis pas sûr que le baptême soit nécessaire","Qu'est-ce que le baptême?"] },
+      { q: "Luttez-vous avec des péchés habituels ou des comportements d'avant votre conversion?", opts: ["Non, j'ai vu un vrai changement","Oui, mais je lutte contre cela","Oui, et je me sens sans espoir","Je ne savais pas que les chrétiens devaient changer de comportement"] },
+      { q: "Comment gérez-vous le doute sur votre foi?", opts: ["Je cherche Dieu à travers les Écritures et la prière","Je parle à quelqu'un dans l'église","Je l'intériorise et me sens confus","J'ai failli abandonner à cause des doutes"] },
+      { q: "Comprenez-vous les doctrines de base du christianisme (Trinité, salut, résurrection)?", opts: ["Oui, j'ai une solide fondation","Partiellement — je connais certaines choses","Non, c'est très déroutant pour moi","On ne m'a jamais enseigné ces choses"] },
+      { q: "À quelle fréquence assistez-vous aux services de l'église?", opts: ["Chaque semaine sans faute","2-3 fois par mois","Rarement","J'ai arrêté d'y aller régulièrement"] },
+      { q: "Avez-vous vécu le remplissage du Saint-Esprit?", opts: ["Oui, c'est une vraie partie de ma vie","J'ai eu des expériences mais je suis incertain","Je ne sais pas ce que cela signifie","Non, et je veux comprendre"] },
+      { q: "Faites-vous partie d'un groupe de discipulat ou d'une étude biblique?", opts: ["Oui, activement impliqué","J'ai assisté à quelques sessions","Non, je ne sais pas comment en trouver un","Je ne savais pas que cela existait"] },
+      { q: "Comment gérez-vous la persécution ou les moqueries à cause de votre foi?", opts: ["Je tiens ferme et explique ma foi","Je me sens embarrassé mais j'essaie de tenir","Je cache ma foi pour éviter les problèmes","J'ai envisagé d'abandonner ma foi"] },
+      { q: "Quel est votre plus grand défi en tant que nouveau chrétien?", opts: ["Comprendre la Bible","Gérer la tentation","Trouver une communauté et appartenir","Réconcilier la foi avec ma vie passée"] },
+      { q: "Si vous aviez accès à un mentor ou conseiller maintenant, que demanderiez-vous?", opts: ["Un plan d'étude biblique structuré","Aide pour surmonter un péché spécifique","Quelqu'un à qui parler de mes doutes","Prière et soutien spirituel"] }
+    ]
+  },
+  backsliders: {
+    en: [
+      { q: "When did you last feel genuinely close to God?", opts: ["Within the last month","Several months ago","Years ago","I'm not sure I ever truly felt close to God"] },
+      { q: "What was the primary reason you drifted from the faith?", opts: ["Church hurt or offense","Loss of faith due to unanswered prayer","Life pressures and circumstances","I gradually stopped without a clear reason"] },
+      { q: "Do you still believe the Bible is true?", opts: ["Yes, completely","Mostly, but I have some doubts","I'm not sure anymore","I've questioned the foundations of my faith"] },
+      { q: "Have you experienced betrayal or hurt from church leaders?", opts: ["Yes, it deeply affected my faith","Yes, but I've processed it","Slightly, but it wasn't the main reason","No, that wasn't my issue"] },
+      { q: "Do you still pray, even irregularly?", opts: ["Yes, I pray sometimes","Very rarely","No, I stopped praying","I feel God doesn't hear me anymore"] },
+      { q: "How do you feel about returning to church?", opts: ["I want to but don't know how","I'm open but scared of being judged","I'm not ready yet","I have no desire to return"] },
+      { q: "Have bitterness or unforgiveness contributed to your spiritual state?", opts: ["Yes, I'm still holding on to hurt","I've forgiven but still keep a distance","I've worked through forgiveness","No, that's not my issue"] },
+      { q: "Do you miss your relationship with God?", opts: ["Deeply — I ache to return","Sometimes I do","Not really","I feel nothing when I think about God"] },
+      { q: "What is the biggest barrier to your return to God?", opts: ["Shame and guilt over past failures","Fear of rejection by the church","I don't know how to start again","I still have unresolved anger at God"] },
+      { q: "Have you tried to return to God before, only to fall back again?", opts: ["Yes, multiple times","Once or twice","I haven't tried to return yet","I don't want to be a hypocrite"] },
+      { q: "Do you feel like God would still accept you after everything?", opts: ["I believe He would, though I struggle","I'm not sure — my sins feel too great","I don't think God wants me back","I've never questioned God's love, just my belonging"] },
+      { q: "Is there someone in your life currently supporting your spiritual journey?", opts: ["Yes, a faithful friend or mentor","I have some people but it's not deep","I'm completely alone in this","I've pushed everyone away"] },
+      { q: "How has your lifestyle changed since drifting from faith?", opts: ["I've made choices I regret","I've lived the same, just without God","I've experienced consequences I'm dealing with","I feel freer without religious rules"] },
+      { q: "Do you still own and read the Bible?", opts: ["Yes, occasionally","I have one but don't open it","I've thrown it away or lost it","I rely on online content occasionally"] },
+      { q: "What would help you most right now?", opts: ["Hearing that God still loves me","Practical steps to return","Talking to someone who understands","Prayer — I need someone to pray with me"] }
+    ],
+    fr: [
+      { q: "Quand avez-vous ressenti pour la dernière fois une vraie proximité avec Dieu?", opts: ["Au cours du dernier mois","Il y a plusieurs mois","Il y a des années","Je ne suis pas sûr d'avoir jamais vraiment ressenti la proximité de Dieu"] },
+      { q: "Quelle était la principale raison pour laquelle vous vous êtes éloigné de la foi?", opts: ["Blessure ou offense de l'église","Perte de foi due à une prière sans réponse","Pressions et circonstances de la vie","Je me suis progressivement arrêté sans raison claire"] },
+      { q: "Croyez-vous encore que la Bible est vraie?", opts: ["Oui, complètement","Surtout, mais j'ai quelques doutes","Je ne suis plus sûr","J'ai remis en question les fondements de ma foi"] },
+      { q: "Avez-vous vécu une trahison ou une blessure de la part de leaders d'église?", opts: ["Oui, cela a profondément affecté ma foi","Oui, mais je l'ai traité","Légèrement, mais ce n'était pas la raison principale","Non, ce n'était pas mon problème"] },
+      { q: "Priez-vous encore, même irrégulièrement?", opts: ["Oui, je prie parfois","Très rarement","Non, j'ai arrêté de prier","Je pense que Dieu ne m'entend plus"] },
+      { q: "Comment vous sentez-vous par rapport au retour à l'église?", opts: ["Je veux mais je ne sais pas comment","Je suis ouvert mais j'ai peur d'être jugé","Je ne suis pas encore prêt","Je n'ai aucun désir de revenir"] },
+      { q: "L'amertume ou le manque de pardon ont-ils contribué à votre état spirituel?", opts: ["Oui, je tiens encore à la douleur","J'ai pardonné mais je garde une distance","J'ai travaillé sur le pardon","Non, ce n'est pas mon problème"] },
+      { q: "Vous manque-t-il votre relation avec Dieu?", opts: ["Profondément — j'ai envie de revenir","Parfois oui","Pas vraiment","Je ne ressens rien quand je pense à Dieu"] },
+      { q: "Quel est le plus grand obstacle à votre retour à Dieu?", opts: ["La honte et la culpabilité des échecs passés","La peur du rejet par l'église","Je ne sais pas comment recommencer","J'ai encore de la colère non résolue envers Dieu"] },
+      { q: "Avez-vous essayé de revenir à Dieu avant, pour rechuter?", opts: ["Oui, plusieurs fois","Une ou deux fois","Je n'ai pas encore essayé de revenir","Je ne veux pas être un hypocrite"] },
+      { q: "Pensez-vous que Dieu vous accepterait encore après tout?", opts: ["Je crois qu'Il le ferait, bien que je lutte","Je ne suis pas sûr — mes péchés semblent trop grands","Je pense que Dieu ne me veut pas","Je n'ai jamais remis en question l'amour de Dieu, juste mon appartenance"] },
+      { q: "Y a-t-il quelqu'un dans votre vie qui soutient actuellement votre voyage spirituel?", opts: ["Oui, un ami fidèle ou un mentor","J'ai quelques personnes mais ce n'est pas profond","Je suis complètement seul","J'ai repoussé tout le monde"] },
+      { q: "Comment votre mode de vie a-t-il changé depuis votre éloignement de la foi?", opts: ["J'ai fait des choix que je regrette","J'ai vécu pareil, juste sans Dieu","J'ai vécu des conséquences que je gère","Je me sens plus libre sans règles religieuses"] },
+      { q: "Possédez-vous encore et lisez-vous la Bible?", opts: ["Oui, occasionnellement","J'en ai une mais ne l'ouvre pas","Je l'ai jetée ou perdue","Je me fie parfois au contenu en ligne"] },
+      { q: "Qu'est-ce qui vous aiderait le plus maintenant?", opts: ["Entendre que Dieu m'aime encore","Des étapes pratiques pour revenir","Parler à quelqu'un qui comprend","Prière — j'ai besoin que quelqu'un prie avec moi"] }
+    ]
+  },
+  workers: {
+    en: [
+      { q: "Why do you serve in the church?", opts: ["Genuine love for God and people","A sense of duty and responsibility","I was asked and didn't want to say no","For recognition or position"] },
+      { q: "How do you feel before you go to serve at church?", opts: ["Excited and expectant","Neutral — it's just routine","Drained and obligated","I dread it sometimes"] },
+      { q: "Do you serve consistently even when no one praises you for it?", opts: ["Yes, my motivation is not praise","Sometimes I need affirmation","I struggle when my effort goes unnoticed","I tend to pull back when unappreciated"] },
+      { q: "Have you ever compared your role to others' roles in the church?", opts: ["Rarely — I'm content in my calling","Sometimes I wish I had a more visible role","Often — it creates frustration","I've had conflicts because of this"] },
+      { q: "Is there any area where you're serving out of compulsion rather than calling?", opts: ["No, I serve where I'm called","Yes, but I'm transitioning out","Yes, and I don't know how to address it","I've never thought about the difference"] },
+      { q: "How often do you pray specifically for the people you serve?", opts: ["Regularly — they're in my prayers","Sometimes, when I remember","Rarely — I focus on tasks not people","I don't see that as my responsibility"] },
+      { q: "Do you feel genuine love for the congregation you serve?", opts: ["Yes, I genuinely care","Mostly, but some people are difficult","I've grown cold toward some people","I feel disconnected from the congregation"] },
+      { q: "Have you experienced burnout in your church service?", opts: ["No, I'm healthy and energized","Mild burnout — I manage it","Yes, significantly burned out","I've quit serving before because of burnout"] },
+      { q: "Are there unresolved conflicts with other workers in the church?", opts: ["No, relationships are healthy","Minor issues I'm working through","Yes, there are unresolved tensions","There's serious conflict I'm avoiding"] },
+      { q: "Do you believe your service is making a real difference?", opts: ["Absolutely — I see the fruit","I believe it, but don't always see it","I've been questioning if it matters","I feel like I'm just going through motions"] },
+      { q: "How accountable are you in your service role?", opts: ["Very — I report and receive feedback","Somewhat accountable","I work mostly independently without oversight","I resist accountability"] },
+      { q: "Do you use your spiritual gifts in your current service role?", opts: ["Yes, I'm in my element","Partially — some gifts are underused","No, I'm not even sure of my gifts","I've never been taught about spiritual gifts"] },
+      { q: "How do you handle criticism about your service?", opts: ["I receive it well and improve","It hurts but I process it","I become defensive and discouraged","I've withdrawn from service after criticism"] },
+      { q: "Is your personal spiritual life stronger because of your service?", opts: ["Yes, serving deepens my walk","It's separate — service and devotion are different","Service has actually drained my personal faith","I'm not sure what a strong personal faith looks like"] },
+      { q: "What would refresh and restore your service the most?", opts: ["Spiritual renewal and deeper prayer","Clear purpose and direction","Healing from conflict and offenses","Affirmation and appreciation from leadership"] }
+    ],
+    fr: [
+      { q: "Pourquoi servez-vous dans l'église?", opts: ["Amour sincère pour Dieu et les gens","Un sentiment de devoir et de responsabilité","On me l'a demandé et je n'ai pas voulu dire non","Pour la reconnaissance ou le poste"] },
+      { q: "Comment vous sentez-vous avant d'aller servir à l'église?", opts: ["Enthousiaste et dans l'attente","Neutre — c'est juste une routine","Épuisé et obligé","Je le redoute parfois"] },
+      { q: "Servez-vous régulièrement même quand personne ne vous loue pour cela?", opts: ["Oui, ma motivation n'est pas la louange","Parfois j'ai besoin d'affirmation","J'ai du mal quand mon effort passe inaperçu","J'ai tendance à me retirer quand je ne suis pas apprécié"] },
+      { q: "Avez-vous déjà comparé votre rôle à celui des autres dans l'église?", opts: ["Rarement — je suis content dans mon appel","Parfois je souhaite avoir un rôle plus visible","Souvent — cela crée de la frustration","J'ai eu des conflits à cause de cela"] },
+      { q: "Y a-t-il un domaine où vous servez par compulsion plutôt que par appel?", opts: ["Non, je sers là où je suis appelé","Oui, mais je suis en transition","Oui, et je ne sais pas comment l'aborder","Je n'ai jamais pensé à la différence"] },
+      { q: "À quelle fréquence priez-vous spécifiquement pour les personnes que vous servez?", opts: ["Régulièrement — ils sont dans mes prières","Parfois, quand je m'en souviens","Rarement — je me concentre sur les tâches pas les gens","Je ne vois pas cela comme ma responsabilité"] },
+      { q: "Ressentez-vous un amour sincère pour la congrégation que vous servez?", opts: ["Oui, je me soucie vraiment","Surtout, mais certaines personnes sont difficiles","Je suis devenu froid envers certaines personnes","Je me sens déconnecté de la congrégation"] },
+      { q: "Avez-vous vécu un épuisement dans votre service à l'église?", opts: ["Non, je suis sain et énergisé","Épuisement léger — je le gère","Oui, significativement épuisé","J'ai arrêté de servir avant à cause de l'épuisement"] },
+      { q: "Y a-t-il des conflits non résolus avec d'autres travailleurs dans l'église?", opts: ["Non, les relations sont saines","Des problèmes mineurs que je travaille","Oui, il y a des tensions non résolues","Il y a un conflit sérieux que j'évite"] },
+      { q: "Croyez-vous que votre service fait une vraie différence?", opts: ["Absolument — je vois le fruit","Je le crois, mais je ne le vois pas toujours","Je remets en question si cela a de l'importance","J'ai l'impression de juste faire les gestes"] },
+      { q: "Dans quelle mesure êtes-vous responsable dans votre rôle de service?", opts: ["Très — je rapporte et reçois des retours","Assez responsable","Je travaille surtout de manière indépendante sans supervision","Je résiste à la responsabilité"] },
+      { q: "Utilisez-vous vos dons spirituels dans votre rôle de service actuel?", opts: ["Oui, je suis dans mon élément","Partiellement — certains dons sont sous-utilisés","Non, je ne suis même pas sûr de mes dons","On ne m'a jamais enseigné les dons spirituels"] },
+      { q: "Comment gérez-vous les critiques sur votre service?", opts: ["Je les reçois bien et m'améliore","Cela fait mal mais je le traite","Je deviens défensif et découragé","Je me suis retiré du service après des critiques"] },
+      { q: "Votre vie spirituelle personnelle est-elle plus forte à cause de votre service?", opts: ["Oui, servir approfondit ma marche","C'est séparé — le service et la dévotion sont différents","Le service a en fait épuisé ma foi personnelle","Je ne sais pas à quoi ressemble une foi personnelle forte"] },
+      { q: "Qu'est-ce qui rafraîchirait et restaurerait le plus votre service?", opts: ["Renouveau spirituel et prière plus profonde","But clair et direction","Guérison des conflits et des offenses","Affirmation et appréciation du leadership"] }
+    ]
+  },
+  leaders: {
+    en: [
+      { q: "Can you clearly articulate the specific vision God has given for your ministry?", opts: ["Yes, it's clear and written down","I have a general sense but need more clarity","I'm not sure the vision is from God","I've been operating without a clear vision"] },
+      { q: "How aligned is your team with the vision of your ministry?", opts: ["Highly aligned — everyone is on the same page","Mostly aligned with a few exceptions","There's significant misalignment","My team doesn't know the vision clearly"] },
+      { q: "Do you invest in discipling the people under your leadership?", opts: ["Yes, it's a top priority","I do some, but less than I should","Rarely — I'm too busy managing programs","I focus on programs rather than people"] },
+      { q: "How do you handle conflict within your leadership team?", opts: ["Directly and biblically, seeking resolution","I address it but it's uncomfortable","I tend to avoid conflict","There are ongoing conflicts I've neglected"] },
+      { q: "Are you growing personally — spiritually, intellectually, emotionally?", opts: ["Yes, I prioritize personal growth","Some areas of growth but inconsistent","I've stagnated — leadership has consumed me","I don't have time for personal development"] },
+      { q: "How do you receive correction or feedback from others?", opts: ["With humility and openness","It's difficult but I process it","I'm defensive when corrected","I've created a culture where no one corrects me"] },
+      { q: "Are the people you lead becoming more mature disciples?", opts: ["Yes, I see real transformation","Some are, others are stagnant","Growth is minimal","We measure activity not discipleship"] },
+      { q: "Do you have a personal mentor or spiritual covering?", opts: ["Yes, I'm accountable to someone","Informally — I have peers I consult","No, I operate independently","I don't believe I need oversight"] },
+      { q: "How would you describe the spiritual atmosphere in your ministry?", opts: ["Vibrant, growing, and God-honouring","Decent but could be deeper","Flat — there's activity but little presence","There are serious spiritual issues I'm ignoring"] },
+      { q: "Are you modeling what you preach and teach?", opts: ["I strive to — my life reflects my message","In most areas, though I struggle in some","There's a significant gap between my words and life","This is an area I've been avoiding"] },
+      { q: "How do you make major decisions in your ministry?", opts: ["Through prayer, counsel, and Scripture","Mostly through prayer","Based on practical logic and need","I decide mostly on my own"] },
+      { q: "Have you experienced a leadership failure you haven't fully processed?", opts: ["No, I've dealt with past failures","Yes, but I've made peace with it","Yes, and it still affects my confidence","Yes, and I haven't addressed it"] },
+      { q: "Are there people in your leadership who are misaligned or potentially harmful?", opts: ["No, the team is healthy","There are minor concerns","Yes, and I need to address it","I've been avoiding difficult personnel decisions"] },
+      { q: "Is your ministry financially and ethically transparent?", opts: ["Yes, we have clear accountability structures","Mostly transparent","There are areas that lack transparency","This is a weak area I know needs attention"] },
+      { q: "What does your ministry most need right now?", opts: ["Spiritual revival and deeper prayer","Better discipleship systems","Healed leadership relationships","Clarity of vision and direction"] }
+    ],
+    fr: [
+      { q: "Pouvez-vous articuler clairement la vision spécifique que Dieu vous a donnée pour votre ministère?", opts: ["Oui, c'est clair et écrit","J'ai un sens général mais j'ai besoin de plus de clarté","Je ne suis pas sûr que la vision vienne de Dieu","J'ai fonctionné sans vision claire"] },
+      { q: "Dans quelle mesure votre équipe est-elle alignée avec la vision de votre ministère?", opts: ["Très alignée — tout le monde est sur la même page","Surtout alignée avec quelques exceptions","Il y a un désalignement significatif","Mon équipe ne connaît pas clairement la vision"] },
+      { q: "Investissez-vous dans le discipulat des personnes sous votre leadership?", opts: ["Oui, c'est une priorité absolue","Je fais quelque chose, mais moins que je devrais","Rarement — je suis trop occupé à gérer des programmes","Je me concentre sur les programmes plutôt que les personnes"] },
+      { q: "Comment gérez-vous les conflits au sein de votre équipe de leadership?", opts: ["Directement et bibliquement, en cherchant une résolution","Je l'aborde mais c'est inconfortable","J'ai tendance à éviter les conflits","Il y a des conflits continus que j'ai négligés"] },
+      { q: "Grandissez-vous personnellement — spirituellement, intellectuellement, émotionnellement?", opts: ["Oui, je priorise la croissance personnelle","Certains domaines de croissance mais inconsistant","Je suis stagné — le leadership m'a consumé","Je n'ai pas le temps pour le développement personnel"] },
+      { q: "Comment recevez-vous la correction ou les retours des autres?", opts: ["Avec humilité et ouverture","C'est difficile mais je le traite","Je suis défensif quand on me corrige","J'ai créé une culture où personne ne me corrige"] },
+      { q: "Les personnes que vous dirigez deviennent-elles des disciples plus matures?", opts: ["Oui, je vois une vraie transformation","Certains oui, d'autres sont stagnants","La croissance est minimale","Nous mesurons l'activité pas le discipulat"] },
+      { q: "Avez-vous un mentor personnel ou une couverture spirituelle?", opts: ["Oui, je suis responsable devant quelqu'un","Informellement — j'ai des pairs que je consulte","Non, je fonctionne indépendamment","Je ne crois pas avoir besoin de supervision"] },
+      { q: "Comment décriveriez-vous l'atmosphère spirituelle dans votre ministère?", opts: ["Vibrante, croissante et honorant Dieu","Décente mais pourrait être plus profonde","Plate — il y a de l'activité mais peu de présence","Il y a de graves problèmes spirituels que j'ignore"] },
+      { q: "Modélisez-vous ce que vous prêchez et enseignez?", opts: ["Je m'y efforce — ma vie reflète mon message","Dans la plupart des domaines, bien que je lutte dans certains","Il y a un écart significatif entre mes paroles et ma vie","C'est un domaine que j'ai évité"] },
+      { q: "Comment prenez-vous des décisions importantes dans votre ministère?", opts: ["Par la prière, le conseil et les Écritures","Surtout par la prière","Basé sur la logique pratique et le besoin","Je décide surtout seul"] },
+      { q: "Avez-vous vécu un échec de leadership que vous n'avez pas complètement traité?", opts: ["Non, j'ai réglé les échecs passés","Oui, mais j'ai fait la paix avec ça","Oui, et cela affecte encore ma confiance","Oui, et je ne l'ai pas abordé"] },
+      { q: "Y a-t-il des personnes dans votre leadership qui sont désalignées ou potentiellement nuisibles?", opts: ["Non, l'équipe est saine","Il y a des préoccupations mineures","Oui, et je dois l'aborder","J'évite les décisions difficiles concernant le personnel"] },
+      { q: "Votre ministère est-il financièrement et éthiquement transparent?", opts: ["Oui, nous avons des structures de responsabilité claires","Surtout transparent","Il y a des domaines qui manquent de transparence","C'est un domaine faible que je sais avoir besoin d'attention"] },
+      { q: "De quoi votre ministère a-t-il le plus besoin maintenant?", opts: ["Réveil spirituel et prière plus profonde","De meilleurs systèmes de discipulat","Relations de leadership guéries","Clarté de vision et de direction"] }
+    ]
+  },
+  pastors: {
+    en: [
+      { q: "How would you honestly describe your current spiritual condition?", opts: ["Vibrant and growing","Steady but could be deeper","Dry — going through the motions","In crisis — I'm struggling deeply"] },
+      { q: "How long has it been since you experienced a genuine personal revival or breakthrough?", opts: ["Recently — within months","A year or two ago","Several years","I'm not sure I've ever experienced one"] },
+      { q: "Do you have a consistent personal devotional life separate from sermon preparation?", opts: ["Yes, it's a non-negotiable priority","Mostly, though it overlaps with work","I struggle — my devotion has become professional","I have no personal devotional life"] },
+      { q: "Have you experienced significant burnout in your ministry?", opts: ["No, I'm managing well","Mild burnout that I handle","Significant burnout affecting my health","I'm currently in a burnout crisis"] },
+      { q: "Do you have trusted people around you who can speak honestly to you?", opts: ["Yes, a strong accountability circle","A few people, though it's not deep","I'm largely isolated","No one can speak to me — I've built walls"] },
+      { q: "Is discipleship a priority system in your church, or just a concept?", opts: ["It's a functioning system with measurable results","We have elements but it's not systematic","It's a sermon topic, not a practice","We've never built a discipleship structure"] },
+      { q: "How do you handle the gap between your public ministry and private life?", opts: ["I work hard to maintain integrity in both","There are gaps but I'm working on them","The gap is significant and concerning","I've learned to compartmentalize — and it worries me"] },
+      { q: "Are there people in your congregation you've given up on?", opts: ["No, I pray for all","A few hard cases I've stepped back from","More than a few — I'm emotionally exhausted","Many — I've lost pastoral compassion"] },
+      { q: "How do you respond to criticism from your congregation?", opts: ["With prayer and honest self-reflection","It's painful but I try to respond well","I've become defensive and protective","Criticism deeply discourages me"] },
+      { q: "Does your family life reflect the values you preach?", opts: ["Yes, with intentional effort","In most areas — some things need work","There's a significant gap","My family has been harmed by my ministry demands"] },
+      { q: "When last did you take a genuine sabbath or rest?", opts: ["Regularly — I protect rest","Occasionally when the schedule allows","Rarely — rest feels like laziness","I can't remember my last real rest"] },
+      { q: "Have you considered leaving ministry?", opts: ["Never — I'm fully committed","In hard seasons I've wondered","Seriously considered it more than once","I'm currently planning to step away"] },
+      { q: "How equipped do you feel for the next season of ministry?", opts: ["Well-equipped and ready","Partially equipped with gaps","Ill-equipped and uncertain","I don't know what the next season looks like"] },
+      { q: "Are your church's growth metrics (attendance, finances) overshadowing true discipleship?", opts: ["No — discipleship is our primary metric","Sometimes the numbers distract us","Yes — we celebrate growth more than transformation","We've built a culture of performance not transformation"] },
+      { q: "What does your soul most need right now?", opts: ["Deep personal renewal and rest","Accountability and honest fellowship","Healing from wounds of ministry","Direction and fresh vision from God"] }
+    ],
+    fr: [
+      { q: "Comment décririez-vous honnêtement votre condition spirituelle actuelle?", opts: ["Vibrante et croissante","Stable mais pourrait être plus profonde","Sèche — faire les choses mécaniquement","En crise — je lutte profondément"] },
+      { q: "Depuis combien de temps n'avez-vous pas vécu un véritable réveil personnel?", opts: ["Récemment — dans les mois","Il y a un ou deux ans","Il y a plusieurs années","Je ne suis pas sûr d'en avoir jamais vécu un"] },
+      { q: "Avez-vous une vie de dévotion personnelle cohérente séparée de la préparation du sermon?", opts: ["Oui, c'est une priorité non négociable","Surtout, bien que cela chevauche le travail","J'ai du mal — ma dévotion est devenue professionnelle","Je n'ai pas de vie de dévotion personnelle"] },
+      { q: "Avez-vous vécu un épuisement significatif dans votre ministère?", opts: ["Non, je gère bien","Épuisement léger que je gère","Épuisement significatif affectant ma santé","Je suis actuellement en crise d'épuisement"] },
+      { q: "Avez-vous des personnes de confiance autour de vous qui peuvent vous parler honnêtement?", opts: ["Oui, un solide cercle de responsabilité","Quelques personnes, bien que ce ne soit pas profond","Je suis largement isolé","Personne ne peut me parler — j'ai construit des murs"] },
+      { q: "Le discipulat est-il un système prioritaire dans votre église, ou juste un concept?", opts: ["C'est un système fonctionnel avec des résultats mesurables","Nous avons des éléments mais ce n'est pas systématique","C'est un sujet de sermon, pas une pratique","Nous n'avons jamais construit une structure de discipulat"] },
+      { q: "Comment gérez-vous l'écart entre votre ministère public et votre vie privée?", opts: ["Je travaille dur pour maintenir l'intégrité dans les deux","Il y a des écarts mais je travaille dessus","L'écart est significatif et préoccupant","J'ai appris à compartimenter — et cela m'inquiète"] },
+      { q: "Y a-t-il des personnes dans votre congrégation à qui vous avez renoncé?", opts: ["Non, je prie pour tous","Quelques cas difficiles dont je me suis éloigné","Plus que quelques-uns — je suis émotionnellement épuisé","Beaucoup — j'ai perdu la compassion pastorale"] },
+      { q: "Comment répondez-vous aux critiques de votre congrégation?", opts: ["Avec prière et honnête réflexion","C'est douloureux mais j'essaie de bien répondre","Je suis devenu défensif et protecteur","Les critiques me découragent profondément"] },
+      { q: "Votre vie de famille reflète-t-elle les valeurs que vous prêchez?", opts: ["Oui, avec un effort intentionnel","Dans la plupart des domaines — certaines choses nécessitent du travail","Il y a un écart significatif","Ma famille a été blessée par les exigences de mon ministère"] },
+      { q: "Quand avez-vous pris un vrai sabbat ou repos pour la dernière fois?", opts: ["Régulièrement — je protège le repos","Occasionnellement quand le calendrier le permet","Rarement — le repos me semble de la paresse","Je ne me souviens pas de mon dernier vrai repos"] },
+      { q: "Avez-vous envisagé de quitter le ministère?", opts: ["Jamais — je suis pleinement engagé","Dans les saisons difficiles je me suis posé la question","Sérieusement envisagé plus d'une fois","Je suis actuellement en train de planifier de me retirer"] },
+      { q: "Dans quelle mesure vous sentez-vous équipé pour la prochaine saison du ministère?", opts: ["Bien équipé et prêt","Partiellement équipé avec des lacunes","Mal équipé et incertain","Je ne sais pas à quoi ressemble la prochaine saison"] },
+      { q: "Les métriques de croissance de votre église éclipsent-elles le vrai discipulat?", opts: ["Non — le discipulat est notre mesure principale","Parfois les chiffres nous distraient","Oui — nous célébrons la croissance plus que la transformation","Nous avons construit une culture de performance pas de transformation"] },
+      { q: "De quoi votre âme a-t-elle le plus besoin maintenant?", opts: ["Renouveau personnel profond et repos","Responsabilité et vraie fraternité","Guérison des blessures du ministère","Direction et vision fraîche de Dieu"] }
+    ]
+  },
+  church: {
+    en: [
+      { q: "Does your church's growth translate into genuine life transformation?", opts: ["Yes — changed lives are our testimony","Some transformation, but not consistent","We're growing in numbers but not in depth","We measure programs not transformation"] },
+      { q: "How would you describe the prayer culture in your church?", opts: ["Strong, consistent, and Spirit-filled","Present but could be much stronger","Weak — prayer is perfunctory","Prayer is mainly for services, not a lifestyle"] },
+      { q: "Is new convert follow-up a structured system in your church?", opts: ["Yes, we have a functioning pipeline","We try, but it's inconsistent","It's mostly word-of-mouth and informal","New converts often get lost after the altar call"] },
+      { q: "How much of your church's activity produces lasting spiritual fruit?", opts: ["Most of it — intentionally designed for impact","About half — some activities are fruitful","A small portion — most is routine","Very little — we're event-driven not outcome-driven"] },
+      { q: "Is there a clear discipleship pathway for believers at every stage of growth?", opts: ["Yes, from converts to leaders","Partial — some stages are covered","No clear pathway exists","Discipleship is not a priority focus"] },
+      { q: "How healthy are the relationships between church members?", opts: ["Strong and genuine community","Good on the surface, but shallow","Some cliques and divisions","There are deep relational fractures"] },
+      { q: "Does your church engage with and serve the surrounding community?", opts: ["Yes, we have active outreach","Occasionally for special events","Rarely — we're mostly inward-focused","The community barely knows we exist"] },
+      { q: "How transparent and accountable is your church's leadership?", opts: ["Fully transparent with proper structures","Mostly, with some gaps","Accountability is weak","There's a culture of unchecked authority"] },
+      { q: "Are spiritual gifts being identified and activated in your congregation?", opts: ["Yes, every member is equipped and deployed","Some gifts are functioning but many are dormant","We focus on Sunday ministry, not member activation","This is not prioritized at all"] },
+      { q: "How would you describe the spiritual hunger of your congregation?", opts: ["Hungry and seeking — the fire is real","Some hungry, many comfortable","People come for programs not God","The congregation is spiritually passive"] },
+      { q: "Is the Word of God preached with conviction and apostolic authority?", opts: ["Yes — the pulpit is strong and transformative","Good preaching but lacks depth","Preaching is motivational more than convicting","The Word is diluted to avoid discomfort"] },
+      { q: "Are leaders in your church being raised up and discipled for greater responsibility?", opts: ["Yes, we have a leadership development pipeline","Informally — some are being raised","No structured approach exists","We fill positions rather than develop people"] },
+      { q: "How does your church respond to sin and moral failure in the congregation?", opts: ["With truth, grace, and restorative accountability","With pastoral care but inconsistently","Mostly ignored or swept under the rug","Harshly, without restoration process"] },
+      { q: "What is the greatest strength of your church right now?", opts: ["Strong community and genuine love","Excellent preaching and teaching","Active service and ministry","Prayer and spiritual sensitivity"] },
+      { q: "What does your church most urgently need?", opts: ["A genuine apostolic revival","A discipleship transformation","Healed and aligned leadership","Deeper engagement with the Holy Spirit"] }
+    ],
+    fr: [
+      { q: "La croissance de votre église se traduit-elle par une vraie transformation de vie?", opts: ["Oui — des vies changées sont notre témoignage","Quelques transformations, mais pas constantes","Nous grandissons en nombre mais pas en profondeur","Nous mesurons les programmes pas la transformation"] },
+      { q: "Comment décririez-vous la culture de prière dans votre église?", opts: ["Forte, cohérente et remplie de l'Esprit","Présente mais pourrait être bien plus forte","Faible — la prière est superficielle","La prière est principalement pour les services, pas un mode de vie"] },
+      { q: "Le suivi des nouveaux convertis est-il un système structuré dans votre église?", opts: ["Oui, nous avons un pipeline fonctionnel","Nous essayons, mais c'est inconsistant","C'est surtout informel","Les nouveaux convertis se perdent souvent après l'appel à l'autel"] },
+      { q: "Quelle proportion des activités de votre église produit un fruit spirituel durable?", opts: ["La plupart — conçue intentionnellement pour l'impact","Environ la moitié — certaines activités sont fructueuses","Une petite partie — la plupart est routine","Très peu — nous sommes axés sur les événements pas les résultats"] },
+      { q: "Y a-t-il un chemin de discipulat clair pour les croyants à chaque étape de la croissance?", opts: ["Oui, des convertis aux leaders","Partiel — certaines étapes sont couvertes","Aucun chemin clair n'existe","Le discipulat n'est pas une priorité"] },
+      { q: "Quelle est la santé des relations entre membres de l'église?", opts: ["Forte et vraie communauté","Bonne en surface, mais superficielle","Quelques cliques et divisions","Il y a de profondes fractures relationnelles"] },
+      { q: "Votre église s'engage-t-elle et sert-elle la communauté environnante?", opts: ["Oui, nous avons une sensibilisation active","Occasionnellement pour des événements spéciaux","Rarement — nous sommes surtout tournés vers l'intérieur","La communauté nous connaît à peine"] },
+      { q: "Dans quelle mesure le leadership de votre église est-il transparent et responsable?", opts: ["Totalement transparent avec des structures appropriées","Surtout, avec quelques lacunes","La responsabilité est faible","Il y a une culture d'autorité incontrôlée"] },
+      { q: "Les dons spirituels sont-ils identifiés et activés dans votre congrégation?", opts: ["Oui, chaque membre est équipé et déployé","Certains dons fonctionnent mais beaucoup sont dormants","Nous nous concentrons sur le ministère du dimanche pas l'activation des membres","Ce n'est pas du tout priorisé"] },
+      { q: "Comment décririez-vous la faim spirituelle de votre congrégation?", opts: ["Affamée et cherchant — le feu est réel","Certains affamés, beaucoup à l'aise","Les gens viennent pour les programmes pas pour Dieu","La congrégation est spirituellement passive"] },
+      { q: "La Parole de Dieu est-elle prêchée avec conviction et autorité apostolique?", opts: ["Oui — la chaire est forte et transformatrice","Bonne prédication mais manque de profondeur","La prédication est motivationnelle plus que convainquante","La Parole est diluée pour éviter l'inconfort"] },
+      { q: "Des leaders dans votre église sont-ils formés et accompagnés pour des responsabilités plus grandes?", opts: ["Oui, nous avons un pipeline de développement du leadership","Informellement — certains sont formés","Aucune approche structurée n'existe","Nous remplissons des postes plutôt que développer des personnes"] },
+      { q: "Comment votre église répond-elle au péché et à l'échec moral dans la congrégation?", opts: ["Avec vérité, grâce et responsabilité restauratrice","Avec soins pastoraux mais inconsistamment","Surtout ignoré ou passé sous silence","Durement, sans processus de restauration"] },
+      { q: "Quelle est la plus grande force de votre église maintenant?", opts: ["Forte communauté et vraie amour","Excellente prédication et enseignement","Service actif et ministère","Prière et sensibilité spirituelle"] },
+      { q: "De quoi votre église a-t-elle le plus besoin de toute urgence?", opts: ["Un véritable réveil apostolique","Une transformation du discipulat","Leadership guéri et aligné","Engagement plus profond avec le Saint-Esprit"] }
+    ]
+  }
+};
+
+// Results data
+const results = {
+  converts: {
+    en: {
+      badge: "🌱 New Believer — A Foundation Awaits You",
+      summary: "Your responses reveal that you are at the beginning of an incredible journey with God. You have taken the most important step — but the next steps matter greatly. Many new believers struggle without proper grounding, and that is not your fault. God has not abandoned you to figure this out alone.",
+      verse: '"Like newborn babies, crave pure spiritual milk, so that by it you may grow up in your salvation." — 1 Peter 2:2',
+      steps: [
+        "Begin reading the Gospel of John — it will give you a clear picture of who Jesus is and what He has done for you.",
+        "Find a Bible-believing, discipleship-focused local church and commit to consistent attendance.",
+        "Ask your pastor or a mature believer to meet with you weekly for mentorship.",
+        "Start a simple daily prayer journal — even 10 minutes a day will transform your walk.",
+        "Contact us for structured discipleship materials and one-on-one support."
+      ]
+    },
+    fr: {
+      badge: "🌱 Nouveau Croyant — Une Fondation Vous Attend",
+      summary: "Vos réponses révèlent que vous êtes au début d'un voyage incroyable avec Dieu. Vous avez fait le pas le plus important — mais les prochaines étapes comptent énormément. Beaucoup de nouveaux croyants luttent sans fondement approprié, et ce n'est pas votre faute. Dieu ne vous a pas abandonné pour vous débrouiller seul.",
+      verse: '"Comme des enfants nouveau-nés, désirez le lait spirituel pur, afin que par lui vous croissiez pour le salut." — 1 Pierre 2:2',
+      steps: [
+        "Commencez à lire l'Évangile de Jean — cela vous donnera une image claire de qui est Jésus.",
+        "Trouvez une église locale qui croit en la Bible et axée sur le discipulat.",
+        "Demandez à votre pasteur ou à un croyant mature de vous rencontrer chaque semaine.",
+        "Commencez un simple journal de prière quotidien — même 10 minutes par jour transformeront votre marche.",
+        "Contactez-nous pour des matériaux de discipulat structurés et un soutien individuel."
+      ]
+    }
+  },
+  backsliders: {
+    en: {
+      badge: "💔 Returning Prodigal — The Father is Watching for You",
+      summary: "Your journey away from God did not surprise Him. The Father in the parable of the Prodigal Son saw his child from a distance and ran to him. God has not moved — and your desire to return, however small, is a sign of His grace working in you. You are not too far gone. You are not too broken. You are not beyond restoration.",
+      verse: '"I will arise and go to my father, and I will say to him, Father, I have sinned against heaven and before you." — Luke 15:18',
+      steps: [
+        "Begin with one honest prayer: 'Father, I'm coming home.' That prayer will move Heaven.",
+        "Read Luke 15 — the Parable of the Prodigal Son — and receive its message for yourself.",
+        "Identify and release any bitterness or unforgiveness that created a wall between you and God.",
+        "Find one trusted believer to walk this restoration journey with you.",
+        "Contact our counseling line — you don't have to return alone."
+      ]
+    },
+    fr: {
+      badge: "💔 Fils Prodigue Retournant — Le Père Vous Attend",
+      summary: "Votre voyage loin de Dieu ne l'a pas surpris. Le Père dans la parabole du Fils Prodigue a vu son enfant de loin et a couru vers lui. Dieu n'a pas bougé — et votre désir de revenir, aussi petit soit-il, est un signe de Sa grâce qui travaille en vous. Vous n'êtes pas allé trop loin. Vous n'êtes pas trop brisé. Vous n'êtes pas au-delà de la restauration.",
+      verse: '"Je me lèverai et j'irai vers mon père, et je lui dirai: Père, j'ai péché contre le ciel et contre toi." — Luc 15:18',
+      steps: [
+        "Commencez par une prière honnête: 'Père, je rentre à la maison.' Cette prière remuera le Ciel.",
+        "Lisez Luc 15 — la Parabole du Fils Prodigue — et recevez son message pour vous.",
+        "Identifiez et libérez toute amertume ou manque de pardon qui a créé un mur entre vous et Dieu.",
+        "Trouvez un croyant de confiance pour marcher dans ce voyage de restauration avec vous.",
+        "Contactez notre ligne de conseil — vous n'avez pas à revenir seul."
+      ]
+    }
+  },
+  workers: {
+    en: {
+      badge: "⚙️ Church Worker — A Heart Realignment is Available",
+      summary: "Your responses reveal that while you are faithfully serving, there may be areas where your heart needs recalibration. Ministry done without genuine love and inner health will eventually hollow out even the most committed servant. God is not just interested in your service — He is deeply invested in your heart.",
+      verse: '"Whatever you do, work at it with all your heart, as working for the Lord, not for human masters." — Colossians 3:23',
+      steps: [
+        "Take a one-week sabbath from church activities to focus purely on your personal devotional life.",
+        "Pray and ask God: 'Why am I really serving?' — allow the Holy Spirit to reveal any wrong motives.",
+        "Have an honest conversation with your pastor or leader about your current state and needs.",
+        "Identify one way to love the people you serve beyond just your official duty.",
+        "Contact us for heart-check devotional materials designed for church workers."
+      ]
+    },
+    fr: {
+      badge: "⚙️ Travailleur d'Église — Un Réalignement du Cœur est Disponible",
+      summary: "Vos réponses révèlent que même si vous servez fidèlement, il peut y avoir des domaines où votre cœur a besoin de recalibration. Le ministère fait sans véritable amour et santé intérieure finira par vider même le serviteur le plus engagé. Dieu n'est pas seulement intéressé par votre service — Il est profondément investi dans votre cœur.",
+      verse: '"Quoi que vous fassiez, faites-le de tout votre cœur, comme pour le Seigneur et non pour des hommes." — Colossiens 3:23',
+      steps: [
+        "Prenez un sabbat d'une semaine des activités d'église pour vous concentrer sur votre vie de dévotion personnelle.",
+        "Priez et demandez à Dieu: 'Pourquoi est-ce que je sers vraiment?' — permettez au Saint-Esprit de révéler les mauvais motifs.",
+        "Ayez une conversation honnête avec votre pasteur ou leader sur votre état actuel et vos besoins.",
+        "Identifiez une façon d'aimer les personnes que vous servez au-delà de votre devoir officiel.",
+        "Contactez-nous pour des matériaux de dévotion d'examen du cœur conçus pour les travailleurs d'église."
+      ]
+    }
+  },
+  leaders: {
+    en: {
+      badge: "🏛️ Church Leader — A Season of Realignment is Calling",
+      summary: "Your responses indicate that God is calling you to a deeper level of accountability, vision, and discipleship investment. The challenges you face are not uncommon — but they require intentional, Spirit-led responses. Leadership is not just about managing people; it is about releasing them into their God-given destiny.",
+      verse: '"He must increase, but I must decrease." — John 3:30',
+      steps: [
+        "Schedule a personal vision retreat — 48 hours alone with God to revisit your calling and direction.",
+        "Identify your three most critical leadership gaps and create a specific action plan for each.",
+        "Establish a formal mentorship relationship with someone of greater spiritual maturity.",
+        "Initiate a honest conversation with your team about vision, alignment, and any unresolved tensions.",
+        "Contact us for our leadership alignment assessment and one-on-one coaching."
+      ]
+    },
+    fr: {
+      badge: "🏛️ Dirigeant d'Église — Une Saison de Réalignement Vous Appelle",
+      summary: "Vos réponses indiquent que Dieu vous appelle à un niveau plus profond de responsabilité, de vision et d'investissement dans le discipulat. Les défis auxquels vous faites face ne sont pas inhabituels — mais ils nécessitent des réponses intentionnelles et menées par l'Esprit. Le leadership ne consiste pas seulement à gérer des personnes; il s'agit de les libérer dans leur destinée donnée par Dieu.",
+      verse: '"Il faut qu'il croisse, et que je diminue." — Jean 3:30',
+      steps: [
+        "Planifiez une retraite personnelle de vision — 48 heures seul avec Dieu pour revisiter votre appel et votre direction.",
+        "Identifiez vos trois lacunes de leadership les plus critiques et créez un plan d'action spécifique pour chacune.",
+        "Établissez une relation de mentorat formelle avec quelqu'un de plus grande maturité spirituelle.",
+        "Initiez une conversation honnête avec votre équipe sur la vision, l'alignement et les tensions non résolues.",
+        "Contactez-nous pour notre évaluation d'alignement de leadership et coaching individuel."
+      ]
+    }
+  },
+  pastors: {
+    en: {
+      badge: "🕊️ Pastor — God Sees Your Weariness and Has Provision",
+      summary: "Your soul needs what you give to others — truth, grace, and renewal. The weight you carry is real, and God has not been silent about it. He spoke to Elijah in the wilderness when he was burned out and suicidal. He will speak to you too. You are not alone in this. Many pastors carry invisible burdens — but the God of all comfort knows and cares deeply.",
+      verse: '"Come to me, all you who are weary and burdened, and I will give you rest." — Matthew 11:28',
+      steps: [
+        "Take a genuine pastoral sabbatical — even 2-3 days away in solitude and silence with God.",
+        "Identify one trusted pastor or spiritual father to share your real struggles with — without a mask.",
+        "Separate your personal devotional time from sermon preparation — your soul needs its own feeding.",
+        "Identify the top source of burnout in your ministry and make one structural change this month.",
+        "Contact us for pastoral renewal resources and a confidential counseling conversation."
+      ]
+    },
+    fr: {
+      badge: "🕊️ Pasteur — Dieu Voit Votre Lassitude et a une Provision",
+      summary: "Votre âme a besoin de ce que vous donnez aux autres — vérité, grâce et renouveau. Le poids que vous portez est réel, et Dieu n'est pas resté silencieux à ce sujet. Il a parlé à Élie dans le désert quand il était épuisé. Il vous parlera aussi. Vous n'êtes pas seul. De nombreux pasteurs portent des fardeaux invisibles — mais le Dieu de tout réconfort sait et se soucie profondément.",
+      verse: '"Venez à moi, vous tous qui êtes fatigués et chargés, et je vous donnerai du repos." — Matthieu 11:28',
+      steps: [
+        "Prenez un véritable congé sabbatique pastoral — même 2-3 jours seul dans la solitude et le silence avec Dieu.",
+        "Identifiez un pasteur ou père spirituel de confiance pour partager vos vraies luttes — sans masque.",
+        "Séparez votre temps de dévotion personnel de la préparation du sermon — votre âme a besoin de sa propre nourriture.",
+        "Identifiez la principale source d'épuisement dans votre ministère et faites un changement structurel ce mois.",
+        "Contactez-nous pour des ressources de renouveau pastoral et une conversation de conseil confidentielle."
+      ]
+    }
+  },
+  church: {
+    en: {
+      badge: "⛪ The Church — A Divine Reset is Possible",
+      summary: "Your assessment reveals a body of Christ that may be busy but not fully fruitful. Many churches across Africa and the world share this tension — programs running, but transformation lagging. The good news is that true revival is not about resources — it is about repentance, realignment, and returning to apostolic foundations. God can revive what has become routine.",
+      verse: '"Wilt thou not revive us again: that thy people may rejoice in thee?" — Psalm 85:6',
+      steps: [
+        "Host a 3-day corporate prayer and fasting event focused specifically on repentance and revival.",
+        "Conduct a leadership alignment summit to honestly assess vision, health, and direction.",
+        "Build or rebuild your new convert follow-up system — discipleship starts at the altar.",
+        "Identify 3-5 people with a burden for discipleship and form a Discipleship Task Force.",
+        "Contact us for a full Church Vitality Assessment and customized restoration plan."
+      ]
+    },
+    fr: {
+      badge: "⛪ L'Église — Une Réinitialisation Divine est Possible",
+      summary: "Votre évaluation révèle un corps du Christ qui peut être actif mais pas pleinement fructueux. De nombreuses églises en Afrique et dans le monde partagent cette tension — des programmes en cours, mais une transformation en retard. La bonne nouvelle est que le vrai réveil ne concerne pas les ressources — il s'agit de repentir, de réalignement et de retour aux fondements apostoliques. Dieu peut raviver ce qui est devenu une routine.",
+      verse: '"Ne nous redonneras-tu pas la vie, afin que ton peuple se réjouisse en toi?" — Psaume 85:6',
+      steps: [
+        "Organisez un événement de prière et de jeûne corporatif de 3 jours axé spécifiquement sur le repentir et le réveil.",
+        "Tenez un sommet d'alignement du leadership pour évaluer honnêtement la vision, la santé et la direction.",
+        "Construisez ou reconstruisez votre système de suivi des nouveaux convertis — le discipulat commence à l'autel.",
+        "Identifiez 3-5 personnes avec un fardeau pour le discipulat et formez une Task Force de Discipulat.",
+        "Contactez-nous pour une Évaluation complète de la Vitalité de l'Église et un plan de restauration personnalisé."
+      ]
+    }
+  }
+};
+
+// ==================== FUNCTIONS ====================
+
+function scrollToSection(id) {
+  const el = document.getElementById(id);
+  if(el) el.scrollIntoView({ behavior:'smooth' });
+}
+
+function toggleLang() {
+  currentLang = currentLang === 'en' ? 'fr' : 'en';
+  const btn = document.getElementById('langBtn');
+  btn.textContent = currentLang === 'en' ? '🇫🇷 Français' : '🇬🇧 English';
+  applyLang();
+  // rebuild quiz with new language
+  buildQuiz(currentCategory);
+}
+
+function applyLang() {
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const text = currentLang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-fr');
+    if(text) el.innerHTML = text;
+  });
+  // update quiz title
+  const cat = categories[currentCategory];
+  if(cat) document.getElementById('quizTitle').textContent = cat[currentLang].title;
+}
+
+function toggleMobile() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('open');
+}
+
+function selectCategory(cat, el) {
+  currentCategory = cat;
+  document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  buildQuiz(cat);
+  document.getElementById('resultPanel').classList.remove('show');
+  document.getElementById('quizContainer').style.display = 'block';
+}
+
+function startAssessment(cat) {
+  scrollToSection('assessment');
+  const tabs = document.querySelectorAll('.cat-tab');
+  const cats = ['converts','backsliders','workers','leaders','pastors','church'];
+  tabs.forEach((t,i) => {
+    t.classList.remove('active');
+    if(cats[i] === cat) t.classList.add('active');
+  });
+  currentCategory = cat;
+  buildQuiz(cat);
+  document.getElementById('resultPanel').classList.remove('show');
+  document.getElementById('quizContainer').style.display = 'block';
+  setTimeout(() => scrollToSection('assessment'), 300);
+}
+
+function buildQuiz(cat) {
+  currentQuestion = 0;
+  answers = new Array(15).fill(null);
+  const lang = currentLang;
+  const questions = quizData[cat][lang];
+  const wrap = document.getElementById('questionsWrap');
+  wrap.innerHTML = '';
+
+  questions.forEach((q, i) => {
+    const block = document.createElement('div');
+    block.className = 'question-block' + (i === 0 ? ' active' : '');
+    block.innerHTML = `
+      <div class="q-text">${q.q}</div>
+      <div class="options">
+        ${q.opts.map((o,j) => `
+          <label class="option" onclick="selectOption(${i},${j},this)">
+            <div class="opt-indicator"></div>
+            <span class="opt-text">${o}</span>
+          </label>
+        `).join('')}
+      </div>
+    `;
+    wrap.appendChild(block);
+  });
+
+  updateProgress();
+  document.getElementById('prevBtn').disabled = true;
+  const nextBtn = document.getElementById('nextBtn');
+  nextBtn.textContent = currentLang === 'en' ? 'Next →' : 'Suivant →';
+  document.getElementById('quizTitle').textContent = categories[cat][lang].title;
+}
+
+function selectOption(qIdx, optIdx, el) {
+  answers[qIdx] = optIdx;
+  el.closest('.options').querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+function nextQ() {
+  if(answers[currentQuestion] === null) {
+    alert(currentLang === 'en' ? 'Please select an answer before continuing.' : 'Veuillez sélectionner une réponse avant de continuer.');
+    return;
+  }
+  if(currentQuestion < 14) {
+    document.querySelectorAll('.question-block')[currentQuestion].classList.remove('active');
+    currentQuestion++;
+    document.querySelectorAll('.question-block')[currentQuestion].classList.add('active');
+    updateProgress();
+    document.getElementById('prevBtn').disabled = false;
+    if(currentQuestion === 14) {
+      document.getElementById('nextBtn').textContent = currentLang === 'en' ? 'See My Results →' : 'Voir Mes Résultats →';
+    }
+  } else {
+    showResults();
+  }
+}
+
+function prevQ() {
+  if(currentQuestion > 0) {
+    document.querySelectorAll('.question-block')[currentQuestion].classList.remove('active');
+    currentQuestion--;
+    document.querySelectorAll('.question-block')[currentQuestion].classList.add('active');
+    updateProgress();
+    document.getElementById('prevBtn').disabled = currentQuestion === 0;
+    document.getElementById('nextBtn').textContent = currentLang === 'en' ? (currentQuestion === 14 ? 'See My Results →' : 'Next →') : (currentQuestion === 14 ? 'Voir Mes Résultats →' : 'Suivant →');
+  }
+}
+
+function updateProgress() {
+  const pct = ((currentQuestion + 1) / 15) * 100;
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('progressText').textContent = currentLang === 'en'
+    ? `Question ${currentQuestion + 1} of 15`
+    : `Question ${currentQuestion + 1} sur 15`;
+}
+
+function showResults() {
+  const res = results[currentCategory][currentLang];
+  const html = `
+    <div class="result-badge">
+      <span class="result-badge-icon">${res.badge.split(' ')[0]}</span>
+      <span class="result-badge-text">${res.badge.split(' ').slice(1).join(' ')}</span>
+    </div>
+    <p style="font-size:0.88rem; color:rgba(245,240,232,0.7); line-height:1.8; margin-bottom:1.5rem;">${res.summary}</p>
+    <div class="result-verse">${res.verse}</div>
+    <div class="result-steps">
+      <h4>${currentLang === 'en' ? 'Your Next Steps' : 'Vos Prochaines Étapes'}</h4>
+      ${res.steps.map((s,i) => `
+        <div class="result-step">
+          <div class="step-num">${i+1}</div>
+          <div class="step-text">${s}</div>
+        </div>
+      `).join('')}
+    </div>
+    <div style="margin-top:2rem; padding:1.5rem; background:rgba(201,168,76,0.06); border:1px solid var(--border);">
+      <p style="font-size:0.82rem; color:rgba(201,168,76,0.85); line-height:1.7; font-family:'Cormorant Garamond',serif; font-style:italic;">
+        ${currentLang === 'en' 
+          ? '"For I know the plans I have for you," declares the LORD, "plans to prosper you and not to harm you, plans to give you hope and a future." — Jeremiah 29:11'
+          : '"Car je connais les projets que j\'ai formés sur vous, dit l\'Éternel, projets de paix et non de malheur, afin de vous donner un avenir et de l\'espérance." — Jérémie 29:11'
+        }
+      </p>
+    </div>
+  `;
+  document.getElementById('resultContent').innerHTML = html;
+  document.getElementById('quizContainer').style.display = 'none';
+  const panel = document.getElementById('resultPanel');
+  panel.classList.add('show');
+  panel.scrollIntoView({ behavior:'smooth', block:'start' });
+}
+
+function restartQuiz() {
+  document.getElementById('resultPanel').classList.remove('show');
+  document.getElementById('quizContainer').style.display = 'block';
+  buildQuiz(currentCategory);
+}
+
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+}
+
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+}
+
+// ==================== INIT ====================
+document.addEventListener('DOMContentLoaded', () => {
+  buildQuiz('converts');
+
+  // Show prayer modal after 8 seconds
+  setTimeout(() => {
+    openModal('prayerModal');
+  }, 8000);
+
+  // Intersection Observer for section animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.audience-card, .teaching-card, .lead-card, .vision-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+  });
+});
+</script>
+</body>
+</html>
